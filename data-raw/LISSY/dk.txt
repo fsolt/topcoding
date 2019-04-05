@@ -1,0 +1,259 @@
+From: postbox@lisdatacenter.org
+Subject: job 614431 dk
+Date: April 5, 2019 at 10:49:16 AM CDT
+To: fsolt@mac.com
+
+############################### NOTICE TO USERS ###############################
+                                                                        
+  Use of the data in the LUXEMBOURG INCOME STUDY DATABASE is governed by
+  regulations which do not allow copying or further distribution of the 
+  survey microdata.                                                     
+
+  Anyone violating these regulations will lose all privileges to the    
+  databases and may be subject to prosecution under the law. In addition,
+  any attempt to circumvent the LIS processing system or unauthorized entry
+  into the LIS computing system will result in prosecution.             
+
+  All papers written using the LUXEMBOURG INCOME STUDY DATABASE must be 
+  submitted for entry into the Working Papers Series.                   
+  Please consult our web site for more information at WWW.LISDATACENTER.ORG
+                                                                        
+############################### NOTICE TO USERS ###############################
+
+> options(echo=FALSE, encoding="UTF-8")
+Loading required package: readstata13
+> options(error = expression(q('no')))
+> library(dplyr) 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+>  
+> ## Define functions 
+> gini <- function(df, x) { 
++     df1 <- df[!is.na(df[[x]]), ] 
++     x <- as.vector(df1[[x]]) 
++     weight <- df1$wt 
++      
++     ox <- order(x) 
++     x <- as.vector(x)[ox] 
++     weight <- as.vector(weight)[ox] / sum(weight)  
++     p <- cumsum(weight) 
++     nu <- cumsum(weight * x) 
++     n <- length(nu) 
++     nu <- nu / nu[n] 
++     res <- round((sum(nu[-1] * p[-n]) - sum(nu[-n] * p[-1])), digits = 4) 
++     return(res) 
++ } 
+>  
+> wNtile <- function(var, wgt, split) { 
++     x <- var[order(var)] 
++     y <- wgt[order(var)] 
++     z <- cumsum(y) / sum(y) 
++     cop <- rep(NA, length(split))  
++     for (i in 1:length(cop)) { 
++         cop[i] <- x[Find(function(h) z[h] > split[i], seq_along(z))] 
++     } 
++     return(cop) 
++ } 
+>  
+> topBottom <- function(var, botline, topline) { 
++     tb <- ifelse(var < botline, botline, var) 
++     tb <- ifelse(tb > topline, topline, tb) 
++     return(tb) 
++ } 
+>  
+> setups <- function(df) { 
++     botline <- 0 
++     topline10 <- 10 * wNtile(df$dhi, df$hpopwgt, 0.5) 
++      
++     df$disp_sqrt10 <- topBottom(df$dhi, botline, topline10) / (df$nhhmem ^ 0.5) 
++     df$disp_sqrt <- ifelse(df$dhi < botline, botline, df$dhi) / (df$nhhmem ^ 0.5)  
++     df$disp_sqrt_med <- round(df$disp_sqrt / wNtile(df$dhi, df$hpopwgt, 0.5), 1) 
++  
++     df$market_sqrt10 <- topBottom(ifelse(!is.na(df$hitp), (df$factor + df$hitp), df$factor), botline, topline10) / (df$nhhmem ^ 0.5) 
++     df$market_sqrt <- ifelse(ifelse(!is.na(df$hitp), (df$factor + df$hitp), df$factor) < 0, botline, ifelse(!is.na(df$hitp), (df$factor + df$hitp), df$factor)) / (df$nhhmem ^ 0.5) 
++      
++     return(df) 
++ } 
+>  
+> boot_gini_se <- function(data, var, reps=100) { 
++     data <- data[!is.na(data[[var]]), ] 
++     resamples <- lapply(1:reps, function(i) dplyr::sample_n(data, size = nrow(data), replace=TRUE)) 
++     r_stat <- lapply(resamples, function(x) gini(x, var)) 
++     std_err <- round(sqrt(var(unlist(r_stat))), digits = 4) 
++     return(std_err)    
++ } 
+>  
+> # For testing at home: 
+> # read.LIS <- function(data_file, labels, vars, subset) { 
+> #   require(dplyr) 
+> #   data_file <- stringr::str_replace(data_file, "h", "ih.dta") 
+> #   df <- haven::read_dta(data_file)[, vars] %>% 
+> #     filter(eval(parse(text = subset), .)) 
+> #   if (!labels) { 
+> #     df <- df %>% dplyr::mutate_all(funs(as.numeric)) 
+> #   } 
+> #   return(df) 
+> # } 
+>  
+> get_ginis <- function(cc, reps = 100) { 
++     set.seed(324) 
++     ccs <- c("au", "at", "be", "br", "ca", "cl", "cn", "co", "cz", "dk",  
++              "do", "eg", "ee", "fi", "fr", "de", "ge", "gr", "gt", "hu", "is",  
++              "in", "ie", "il", "it", "jp", "lu", "lt", "mx", "nl", "no", "pa",   
++              "py", "pe", "pl", "ro", "ru", "rs", "sk", "si", "za", "kr", "es",   
++              "se", "ch", "tw", "uk", "us", "uy") 
++     cc <- tolower(cc) 
++     if (!cc %in% ccs) { 
++         stop("Please specify a LIS country in iso2c format") 
++     } 
++     last_year_yy <- as.numeric(format(Sys.Date(), "%Y")) - 2001 
++     yy <- as.character(c(c(67, 69, 71, 73:75, 78:99), paste0("0", 0:9), c(10:last_year_yy))) 
++      
++     datasets <- paste0(rep(cc, each = length(yy)), rep(yy, times = length(cc)), "h") 
++     vars <- c("dhi", "hi", "factor", "hitp", "hc", "hpopwgt", "nhhmem", "nhhmem13", "grossnet") 
++      
++     v <- c("disp_sqrt10", "disp_sqrt") 
++      
++     for (ccyy in datasets) { 
++         cat("") 
++         df <- try(read.LIS(ccyy, labels = FALSE, vars = vars), silent = TRUE) 
++         if (!class(df)[1] == "try-error") { 
++             mean_dhi <- mean(df$dhi, na.rm = TRUE) 
++             if (!is.nan(mean_dhi) & !mean_dhi == 0) { 
++                 df <- setups(df) 
++                 cat(paste(ccyy, 
++                           nrow(df %>%  
++                                    filter(!is.na(disp_sqrt10))), 
++                           nrow(df %>%  
++                                    filter(!is.na(disp_sqrt) & disp_sqrt > 10 * wNtile(df$dhi, df$hpopwgt, 0.5))), 
++                           10 * wNtile(df$dhi, df$hpopwgt, 0.5)), 
++                     sep = "\n") 
++                 print(summary(df %>%  
++                                   pull(disp_sqrt10))) 
++                 print(summary(df %>%  
++                                   filter(disp_sqrt > 10 * wNtile(df$dhi, df$hpopwgt, 0.5)) %>%  
++                                   pull(disp_sqrt))) 
++                 print(c("over", ccyy, df %>% 
++                           filter(disp_sqrt_med > 10) %>%  
++                           pull(disp_sqrt_med) %>%  
++                             sort())) 
++                 for (var in v) { 
++                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
++                         cat(paste("gini", 
++                                   ccyy,  
++                                   var,  
++                                   gini(df, var), 
++                                   boot_gini_se(df, var, reps = reps), 
++                                   df$grossnet[1], 
++                                   sep = ","), sep = "\n") 
++                     } 
++                 } 
++             } 
++         } 
++     } 
++ } 
+>  
+> # Call 
+> get_ginis("dk", reps = 500) 
+[1] "Loading dataset dk87h..."
+dk87h 12462 0 1261960
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0   66926   99346  107203  133656  958586 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+                                                
+[1] "over"  "dk87h"
+gini,dk87h,disp_sqrt10,0,0,110
+gini,dk87h,disp_sqrt,0,0,110
+[1] "Loading dataset dk92h..."
+dk92h 12895 3 1426510
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0   80854  113516  121764  153168 1426510 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+1711685 2345930 2980175 2635570 3097513 3214850 
+[1] "over"  "dk92h" "12"    "20.9"  "22.5" 
+gini,dk92h,disp_sqrt10,0,0,110
+gini,dk92h,disp_sqrt,0,0,110
+[1] "Loading dataset dk95h..."
+dk95h 80071 18 1765270
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0   93934  129229  138734  170586 1765270 
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+ 1856624  2554293  3796162  4450744  5169516 10916223 
+ [1] "over"  "dk95h" "10.5"  "11.2"  "13.6"  "13.7"  "14.4"  "14.8"  "18.6" 
+[10] "19.2"  "21.4"  "21.6"  "22.1"  "22.3"  "23.7"  "31.1"  "33.5"  "42"   
+[19] "58.1"  "61.8" 
+gini,dk95h,disp_sqrt10,0,0,110
+gini,dk95h,disp_sqrt,0,0,110
+[1] "Loading dataset dk00h..."
+dk00h 82062 9 2077760
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0  110060  154085  166007  204687 2077760 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+2276804 2564960 2796021 4196284 4846515 8099249 
+ [1] "over"  "dk00h" "11"    "11.1"  "12.3"  "13.1"  "13.5"  "22.1"  "23.3" 
+[10] "36.4"  "39"   
+gini,dk00h,disp_sqrt10,0,0,110
+gini,dk00h,disp_sqrt,0,0,110
+[1] "Loading dataset dk04h..."
+dk04h 83349 17 2330990
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0  125632  174702  189063  233559 2330990      60 
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+ 2346857  2739368  3255725  3924049  4282741 11052791 
+ [1] "over"  "dk04h" "10.1"  "10.8"  "11"    "11.3"  "11.8"  "11.9"  "13.6" 
+[10] "13.7"  "14"    "14.4"  "14.8"  "15.1"  "18.4"  "18.5"  "23.4"  "26.2" 
+[19] "47.4" 
+gini,dk04h,disp_sqrt10,0,0,110
+gini,dk04h,disp_sqrt,0,0,110
+[1] "Loading dataset dk07h..."
+dk07h 84669 30 2535450
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0  137713  192911  209268  256473 2535450 
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+ 2559649  2740835  3835360  4491073  5365185 10488597 
+ [1] "over"  "dk07h" "10.1"  "10.1"  "10.2"  "10.3"  "10.5"  "10.7"  "10.7" 
+[10] "10.8"  "10.9"  "11.8"  "12.6"  "13.1"  "13.5"  "14.6"  "14.6"  "15.7" 
+[19] "16.6"  "18.7"  "18.8"  "19.5"  "20.4"  "20.8"  "21.3"  "23.3"  "25.2" 
+[28] "26.2"  "27.9"  "28"    "33.4"  "41.4" 
+gini,dk07h,disp_sqrt10,0,0,110
+gini,dk07h,disp_sqrt,0,0,110
+[1] "Loading dataset dk10h..."
+dk10h 85645 39 2733800
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0  150423  206681  228994  282049 2733800 
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+ 2776623  3308317  4414882  6824434  7541474 24829245 
+ [1] "over"  "dk10h" "10.2"  "10.5"  "10.5"  "10.6"  "10.7"  "10.7"  "11.2" 
+[10] "11.4"  "11.6"  "11.9"  "12.3"  "13"    "13.3"  "13.8"  "14.1"  "15.2" 
+[19] "15.7"  "15.9"  "16.1"  "16.1"  "16.8"  "17.1"  "17.1"  "17.4"  "19.5" 
+[28] "19.7"  "20.7"  "20.9"  "27.2"  "28"    "35.2"  "39.3"  "42.3"  "43.7" 
+[37] "45.2"  "56.3"  "78.5"  "83.2"  "90.8" 
+gini,dk10h,disp_sqrt10,0,0,110
+gini,dk10h,disp_sqrt,0,0,110
+[1] "Loading dataset dk13h..."
+dk13h 87517 28 2818410
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0  157858  212944  237730  291304 2818410 
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+ 2943567  3447159  3915094  5113854  5317254 19266601 
+ [1] "over"  "dk13h" "10.4"  "10.6"  "11.1"  "11.2"  "11.4"  "12"    "12"   
+[10] "12.3"  "12.7"  "13"    "13.1"  "13.4"  "13.4"  "13.8"  "14"    "14.6" 
+[19] "14.8"  "15.4"  "15.8"  "16.2"  "18.6"  "19.7"  "20.9"  "23.5"  "29.4" 
+[28] "29.8"  "36.8"  "68.4" 
+gini,dk13h,disp_sqrt10,0,0,110
+gini,dk13h,disp_sqrt,0,0,110
+> 
+> proc.time()
+   user  system elapsed 
+251.467   3.208 304.637 
+
+
