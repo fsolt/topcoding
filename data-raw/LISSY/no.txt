@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614452 no
-Date: April 5, 2019 at 11:00:14 AM CDT
+Subject: job 614543 no
+Date: April 5, 2019 at 1:30:02 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -178,8 +183,8 @@ no79h 10414 66 640000
 [46] "19.3"  "20"    "21.6"  "21.7"  "23.5"  "24.4"  "25.8"  "26.1"  "26.7" 
 [55] "27.5"  "29.1"  "34.2"  "42"    "44.1"  "45.1"  "46.2"  "48.4"  "77.7" 
 [64] "101.4" "106.2" "108.2" "163.1" "208"  
-gini,no79h,disp_sqrt10,0,0,110
-gini,no79h,disp_sqrt,0,0,110
+gini,no79h,disp_sqrt10,0.2246,0.0023,110
+gini,no79h,disp_sqrt,0.2256,0.0024,110
 [1] "Loading dataset no86h..."
 no86h 4975 0 1472580
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -187,8 +192,8 @@ no86h 4975 0 1472580
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "no86h"
-gini,no86h,disp_sqrt10,0,0,110
-gini,no86h,disp_sqrt,0,0,110
+gini,no86h,disp_sqrt10,0.2347,0.0029,110
+gini,no86h,disp_sqrt,0.2347,0.0031,110
 [1] "Loading dataset no91h..."
 no91h 8073 3 1839230
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -196,8 +201,8 @@ no91h 8073 3 1839230
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 1884606 1983289 2081973 2230422 2403330 2724687 
 [1] "over"  "no91h" "10.2"  "11.3"  "14.8" 
-gini,no91h,disp_sqrt10,0,0,110
-gini,no91h,disp_sqrt,0,0,110
+gini,no91h,disp_sqrt10,0.2322,0.0041,110
+gini,no91h,disp_sqrt,0.233,0.0042,110
 [1] "Loading dataset no95h..."
 no95h 10127 5 1911990
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -205,8 +210,8 @@ no95h 10127 5 1911990
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 2189152 3126654 3878957 4666979 6909070 7231060 
 [1] "over"  "no95h" "11.4"  "16.4"  "20.3"  "36.1"  "37.8" 
-gini,no95h,disp_sqrt10,0,0,110
-gini,no95h,disp_sqrt,0,0,110
+gini,no95h,disp_sqrt10,0.2383,0.0031,110
+gini,no95h,disp_sqrt,0.243,0.0042,110
 [1] "Loading dataset no00h..."
 no00h 12919 23 2496340
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -216,8 +221,8 @@ no00h 12919 23 2496340
  [1] "over"  "no00h" "10.3"  "10.4"  "10.5"  "10.7"  "10.7"  "11.2"  "11.6" 
 [10] "12.1"  "12.9"  "13.9"  "13.9"  "14.9"  "15.1"  "17.7"  "21.7"  "21.9" 
 [19] "25.8"  "27.4"  "30"    "30.1"  "34.5"  "47.4"  "51.7" 
-gini,no00h,disp_sqrt10,0,0,110
-gini,no00h,disp_sqrt,0,0,110
+gini,no00h,disp_sqrt10,0.2468,0.0029,110
+gini,no00h,disp_sqrt,0.2609,0.0054,110
 [1] "Loading dataset no04h..."
 no04h 13131 14 2958920
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -226,8 +231,8 @@ no04h 13131 14 2958920
  3206226  4110083  8028641 16378244 18614108 76545180 
  [1] "over"  "no04h" "10.8"  "12.4"  "13.2"  "13.3"  "15.8"  "23.7"  "23.9" 
 [10] "30.4"  "36.1"  "61.8"  "63.3"  "102.1" "109.5" "258.7"
-gini,no04h,disp_sqrt10,0,0,110
-gini,no04h,disp_sqrt,0,0,110
+gini,no04h,disp_sqrt10,0.2529,0.0028,110
+gini,no04h,disp_sqrt,0.283,0.0112,110
 [1] "Loading dataset no07h..."
 no07h 217884 47 3500480
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -240,8 +245,8 @@ no07h 217884 47 3500480
 [28] "14.1"  "14.2"  "14.5"  "14.6"  "14.6"  "14.8"  "15"    "15.4"  "16.1" 
 [37] "16.4"  "17.6"  "18"    "18.1"  "19.2"  "21.9"  "23.3"  "25"    "25.9" 
 [46] "26.6"  "28.8"  "32"   
-gini,no07h,disp_sqrt10,0,0,110
-gini,no07h,disp_sqrt,0,0,110
+gini,no07h,disp_sqrt10,0.2439,6e-04,110
+gini,no07h,disp_sqrt,0.2468,9e-04,110
 [1] "Loading dataset no10h..."
 no10h 228200 183 3954220
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -269,8 +274,8 @@ no10h 228200 183 3954220
 [163] "53.7"  "53.9"  "54"    "54.1"  "54.1"  "54.2"  "54.3"  "55.8"  "55.8" 
 [172] "55.9"  "55.9"  "56.2"  "57.5"  "57.7"  "58"    "69.2"  "71.1"  "75.6" 
 [181] "75.6"  "75.6"  "75.6"  "75.6"  "87.3" 
-gini,no10h,disp_sqrt10,0,0,110
-gini,no10h,disp_sqrt,0,0,110
+gini,no10h,disp_sqrt10,0.2437,6e-04,110
+gini,no10h,disp_sqrt,0.2507,0.0011,110
 [1] "Loading dataset no13h..."
 no13h 235732 300 4497820
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -311,13 +316,11 @@ no13h 235732 300 4497820
 [280] "39.4"  "39.5"  "39.5"  "39.8"  "40"    "40.1"  "40.1"  "43"    "55.2" 
 [289] "55.2"  "55.2"  "55.2"  "55.2"  "55.2"  "55.2"  "55.2"  "55.2"  "55.2" 
 [298] "55.3" 
-gini,no13h,disp_sqrt10,0,0,110
-gini,no13h,disp_sqrt,0,0,110
+gini,no13h,disp_sqrt10,0.2497,6e-04,110
+gini,no13h,disp_sqrt,0.2526,6e-04,110
 > 
 > proc.time()
    user  system elapsed 
-355.371   9.231 418.390 
-Warning message:
-system call failed: Cannot allocate memory 
+389.036  12.163 455.651 
 
 

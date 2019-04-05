@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614458 ru
-Date: April 5, 2019 at 10:55:20 AM CDT
+Subject: job 614549 ru
+Date: April 5, 2019 at 1:24:46 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ ru00h 3112 6 308440
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  338511  378994  521021  598633  611073 1238502 
 [1] "over"  "ru00h" "11"    "11.1"  "15.7"  "18.1"  "20.4"  "40.2" 
-gini,ru00h,disp_sqrt10,0,0,200
-gini,ru00h,disp_sqrt,0,0,200
+gini,ru00h,disp_sqrt10,0.4116,0.0066,200
+gini,ru00h,disp_sqrt,0.4267,0.0104,200
 [1] "Loading dataset ru04h..."
 ru04h 3061 1 911470
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -180,8 +185,8 @@ ru04h 3061 1 911470
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 1019012 1019012 1019012 1019012 1019012 1019012 
 [1] "over"  "ru04h" "11.2" 
-gini,ru04h,disp_sqrt10,0,0,200
-gini,ru04h,disp_sqrt,0,0,200
+gini,ru04h,disp_sqrt10,0.3895,0.0059,200
+gini,ru04h,disp_sqrt,0.39,0.0058,200
 [1] "Loading dataset ru07h..."
 ru07h 3335 0 1963030
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -189,8 +194,8 @@ ru07h 3335 0 1963030
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ru07h"
-gini,ru07h,disp_sqrt10,0,0,200
-gini,ru07h,disp_sqrt,0,0,200
+gini,ru07h,disp_sqrt10,0.3485,0.0048,200
+gini,ru07h,disp_sqrt,0.3485,0.005,200
 [1] "Loading dataset ru10h..."
 ru10h 5658 2 3051380
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -198,8 +203,8 @@ ru10h 5658 2 3051380
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 3644112 4435690 5227268 5227268 6018846 6810424 
 [1] "over"  "ru10h" "11.9"  "22.3" 
-gini,ru10h,disp_sqrt10,0,0,200
-gini,ru10h,disp_sqrt,0,0,200
+gini,ru10h,disp_sqrt10,0.339,0.0044,200
+gini,ru10h,disp_sqrt,0.3435,0.0055,200
 [1] "Loading dataset ru11h..."
 ru11h 9990 1 3902190
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -207,8 +212,8 @@ ru11h 9990 1 3902190
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 6806623 6806623 6806623 6806623 6806623 6806623 
 [1] "over"  "ru11h" "17.4" 
-gini,ru11h,disp_sqrt10,0,0,120
-gini,ru11h,disp_sqrt,0,0,120
+gini,ru11h,disp_sqrt10,0.3622,0.0049,120
+gini,ru11h,disp_sqrt,0.3642,0.006,120
 [1] "Loading dataset ru13h..."
 ru13h 45000 0 5101240
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -216,8 +221,8 @@ ru13h 45000 0 5101240
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ru13h"
-gini,ru13h,disp_sqrt10,0,0,120
-gini,ru13h,disp_sqrt,0,0,120
+gini,ru13h,disp_sqrt10,0.3482,0.0051,120
+gini,ru13h,disp_sqrt,0.3506,0.0059,120
 [1] "Loading dataset ru14h..."
 ru14h 45000 0 5477840
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -225,8 +230,8 @@ ru14h 45000 0 5477840
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ru14h"
-gini,ru14h,disp_sqrt10,0,0,120
-gini,ru14h,disp_sqrt,0,0,120
+gini,ru14h,disp_sqrt10,0.3393,0.0039,120
+gini,ru14h,disp_sqrt,0.3396,0.0043,120
 [1] "Loading dataset ru15h..."
 ru15h 60000 0 5990000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -234,8 +239,8 @@ ru15h 60000 0 5990000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ru15h"
-gini,ru15h,disp_sqrt10,0,0,120
-gini,ru15h,disp_sqrt,0,0,120
+gini,ru15h,disp_sqrt10,0.3308,0.0035,120
+gini,ru15h,disp_sqrt,0.3309,0.0033,120
 [1] "Loading dataset ru16h..."
 ru16h 160008 1 6141810
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -243,11 +248,13 @@ ru16h 160008 1 6141810
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 7532337 7532337 7532337 7532337 7532337 7532337 
 [1] "over"  "ru16h" "12.3" 
-gini,ru16h,disp_sqrt10,0,0,120
-gini,ru16h,disp_sqrt,0,0,120
+gini,ru16h,disp_sqrt10,0.3305,0.0029,120
+gini,ru16h,disp_sqrt,0.3315,0.0033,120
 > 
 > proc.time()
    user  system elapsed 
-152.069   5.298 162.076 
+164.404   5.333 173.596 
+Warning message:
+system call failed: Cannot allocate memory 
 
 

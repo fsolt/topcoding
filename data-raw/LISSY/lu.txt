@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614449 lu
-Date: April 5, 2019 at 10:50:00 AM CDT
+Subject: job 614540 lu
+Date: April 5, 2019 at 1:18:26 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ lu85h 2012 0 7320000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "lu85h"
-gini,lu85h,disp_sqrt10,0,0,200
-gini,lu85h,disp_sqrt,0,0,200
+gini,lu85h,disp_sqrt10,0.236,0.0045,200
+gini,lu85h,disp_sqrt,0.236,0.0045,200
 [1] "Loading dataset lu91h..."
 lu91h 1957 0 11760000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -180,8 +185,8 @@ lu91h 1957 0 11760000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "lu91h"
-gini,lu91h,disp_sqrt10,0,0,200
-gini,lu91h,disp_sqrt,0,0,200
+gini,lu91h,disp_sqrt10,0.2386,0.0066,200
+gini,lu91h,disp_sqrt,0.2388,0.0063,200
 [1] "Loading dataset lu94h..."
 lu94h 1813 0 13633440
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -189,8 +194,8 @@ lu94h 1813 0 13633440
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "lu94h"
-gini,lu94h,disp_sqrt10,0,0,200
-gini,lu94h,disp_sqrt,0,0,200
+gini,lu94h,disp_sqrt10,0.2354,0.0053,200
+gini,lu94h,disp_sqrt,0.2354,0.0048,200
 [1] "Loading dataset lu97h..."
 lu97h 2515 0 13680480
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -198,8 +203,8 @@ lu97h 2515 0 13680480
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "lu97h"
-gini,lu97h,disp_sqrt10,0,0,200
-gini,lu97h,disp_sqrt,0,0,200
+gini,lu97h,disp_sqrt10,0.2612,0.0049,200
+gini,lu97h,disp_sqrt,0.2612,0.0051,200
 [1] "Loading dataset lu00h..."
 lu00h 2415 0 15600000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -207,8 +212,8 @@ lu00h 2415 0 15600000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "lu00h"
-gini,lu00h,disp_sqrt10,0,0,200
-gini,lu00h,disp_sqrt,0,0,200
+gini,lu00h,disp_sqrt10,0.2621,0.005,200
+gini,lu00h,disp_sqrt,0.2621,0.0053,200
 [1] "Loading dataset lu04h..."
 lu04h 3622 1 476480
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -216,8 +221,8 @@ lu04h 3622 1 476480
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  482911  482911  482911  482911  482911  482911 
 [1] "over"  "lu04h" "10.1" 
-gini,lu04h,disp_sqrt10,0,0,110
-gini,lu04h,disp_sqrt,0,0,110
+gini,lu04h,disp_sqrt10,0.2688,0.0056,110
+gini,lu04h,disp_sqrt,0.2698,0.006,110
 [1] "Loading dataset lu07h..."
 lu07h 3755 2 507480
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -225,8 +230,8 @@ lu07h 3755 2 507480
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  524847  647768  770689  770689  893610 1016530 
 [1] "over"  "lu07h" "10.3"  "20"   
-gini,lu07h,disp_sqrt10,0,0,100
-gini,lu07h,disp_sqrt,0,0,100
+gini,lu07h,disp_sqrt10,0.2757,0.0066,100
+gini,lu07h,disp_sqrt,0.277,0.0069,100
 [1] "Loading dataset lu10h..."
 lu10h 5452 0 542060
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -234,8 +239,8 @@ lu10h 5452 0 542060
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "lu10h"
-gini,lu10h,disp_sqrt10,0,0,100
-gini,lu10h,disp_sqrt,0,0,100
+gini,lu10h,disp_sqrt10,0.2699,0.0057,100
+gini,lu10h,disp_sqrt,0.271,0.0063,100
 [1] "Loading dataset lu13h..."
 lu13h 3873 0 554340
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -243,11 +248,11 @@ lu13h 3873 0 554340
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "lu13h"
-gini,lu13h,disp_sqrt10,0,0,100
-gini,lu13h,disp_sqrt,0,0,100
+gini,lu13h,disp_sqrt10,0.2825,0.0052,100
+gini,lu13h,disp_sqrt,0.2836,0.0054,100
 > 
 > proc.time()
    user  system elapsed 
- 18.415   0.287  20.082 
+ 19.447   0.357  20.546 
 
 

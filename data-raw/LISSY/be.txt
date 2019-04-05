@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614423 be
-Date: April 5, 2019 at 10:35:52 AM CDT
+Subject: job 614511 be
+Date: April 5, 2019 at 1:02:51 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ be85h 6471 0 5868000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "be85h"
-gini,be85h,disp_sqrt10,0,0,200
-gini,be85h,disp_sqrt,0,0,200
+gini,be85h,disp_sqrt10,0.2279,0.0024,200
+gini,be85h,disp_sqrt,0.2279,0.0025,200
 [1] "Loading dataset be88h..."
 be88h 3779 0 6276000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -180,8 +185,8 @@ be88h 3779 0 6276000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "be88h"
-gini,be88h,disp_sqrt10,0,0,200
-gini,be88h,disp_sqrt,0,0,200
+gini,be88h,disp_sqrt10,0.2347,0.004,200
+gini,be88h,disp_sqrt,0.2352,0.0041,200
 [1] "Loading dataset be92h..."
 be92h 3821 0 7296000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -189,8 +194,8 @@ be92h 3821 0 7296000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "be92h"
-gini,be92h,disp_sqrt10,0,0,120
-gini,be92h,disp_sqrt,0,0,120
+gini,be92h,disp_sqrt10,0.2289,0.0032,120
+gini,be92h,disp_sqrt,0.2289,0.0033,120
 [1] "Loading dataset be95h..."
 be95h 2639 0 8988000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -198,8 +203,8 @@ be95h 2639 0 8988000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "be95h"
-gini,be95h,disp_sqrt10,0,0,200
-gini,be95h,disp_sqrt,0,0,200
+gini,be95h,disp_sqrt10,0.2686,0.0065,200
+gini,be95h,disp_sqrt,0.2686,0.0065,200
 [1] "Loading dataset be97h..."
 be97h 4632 0 8279820
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -207,8 +212,8 @@ be97h 4632 0 8279820
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "be97h"
-gini,be97h,disp_sqrt10,0,0,120
-gini,be97h,disp_sqrt,0,0,120
+gini,be97h,disp_sqrt10,0.2514,0.0035,120
+gini,be97h,disp_sqrt,0.2514,0.0036,120
 [1] "Loading dataset be00h..."
 be00h 2085 2 11530000
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
@@ -216,11 +221,11 @@ be00h 2085 2 11530000
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 11983000 24091051 36199102 36199102 48307153 60415203 
 [1] "over"  "be00h" "10.4"  "52.4" 
-gini,be00h,disp_sqrt10,0,0,200
-gini,be00h,disp_sqrt,0,0,200
+gini,be00h,disp_sqrt10,0.2811,0.0085,200
+gini,be00h,disp_sqrt,0.3176,0.0367,200
 > 
 > proc.time()
    user  system elapsed 
- 13.878   0.361  15.177 
+ 14.950   0.380  15.957 
 
 

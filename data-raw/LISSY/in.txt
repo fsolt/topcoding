@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614443 in
-Date: April 5, 2019 at 10:48:24 AM CDT
+Subject: job 614534 in
+Date: April 5, 2019 at 1:16:40 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -179,8 +184,8 @@ in04h 41467 74 310470
 [55] "15.4"  "15.4"  "15.6"  "15.7"  "15.8"  "16.1"  "16.9"  "17.3"  "17.8" 
 [64] "19"    "19.8"  "19.9"  "22.2"  "22.6"  "23.6"  "25.9"  "26.7"  "28.4" 
 [73] "28.5"  "56.9"  "70"    "89.9" 
-gini,in04h,disp_sqrt10,0,0,200
-gini,in04h,disp_sqrt,0,0,200
+gini,in04h,disp_sqrt10,0.4689,0.0019,200
+gini,in04h,disp_sqrt,0.4918,0.0043,200
 [1] "Loading dataset in11h..."
 in11h 42119 97 725000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -198,11 +203,11 @@ in11h 42119 97 725000
 [73] "17.7"  "18"    "18.1"  "18.1"  "18.4"  "18.4"  "18.5"  "18.8"  "19"   
 [82] "19.3"  "19.5"  "19.6"  "20.5"  "20.8"  "23.4"  "26.5"  "26.9"  "26.9" 
 [91] "27.9"  "28.4"  "32.2"  "36.6"  "37.9"  "64.6"  "70.1"  "77.1"  "81.2" 
-gini,in11h,disp_sqrt10,0,0,200
-gini,in11h,disp_sqrt,0,0,200
+gini,in11h,disp_sqrt10,0.4755,0.0019,200
+gini,in11h,disp_sqrt,0.5035,0.0038,200
 > 
 > proc.time()
    user  system elapsed 
- 36.212   1.352  38.728 
+ 39.485   1.576  42.021 
 
 

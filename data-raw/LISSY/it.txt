@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614446 it
-Date: April 5, 2019 at 10:49:49 AM CDT
+Subject: job 614537 it
+Date: April 5, 2019 at 1:18:09 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ it86h 8022 3 1.77e+08
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 197900000 265155449 332410898 287686966 332580449 332750000 
 [1] "over"  "it86h" "11.2"  "18.8"  "18.8" 
-gini,it86h,disp_sqrt10,0,0,200
-gini,it86h,disp_sqrt,0,0,200
+gini,it86h,disp_sqrt10,0.3061,0.0045,200
+gini,it86h,disp_sqrt,0.3095,0.0053,200
 [1] "Loading dataset it87h..."
 it87h 8027 0 191469280
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -180,8 +185,8 @@ it87h 8027 0 191469280
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "it87h"
-gini,it87h,disp_sqrt10,0,0,200
-gini,it87h,disp_sqrt,0,0,200
+gini,it87h,disp_sqrt10,0.3337,0.0047,200
+gini,it87h,disp_sqrt,0.3344,0.0046,200
 [1] "Loading dataset it89h..."
 it89h 8274 1 238232620
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -189,8 +194,8 @@ it89h 8274 1 238232620
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 266582563 266582563 266582563 266582563 266582563 266582563 
 [1] "over"  "it89h" "11.2" 
-gini,it89h,disp_sqrt10,0,0,200
-gini,it89h,disp_sqrt,0,0,200
+gini,it89h,disp_sqrt10,0.3033,0.0041,200
+gini,it89h,disp_sqrt,0.3039,0.0042,200
 [1] "Loading dataset it91h..."
 it91h 8188 0 275218420
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -198,8 +203,8 @@ it91h 8188 0 275218420
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "it91h"
-gini,it91h,disp_sqrt10,0,0,200
-gini,it91h,disp_sqrt,0,0,200
+gini,it91h,disp_sqrt10,0.292,0.0041,200
+gini,it91h,disp_sqrt,0.2923,0.0043,200
 [1] "Loading dataset it93h..."
 it93h 8089 1 2.72e+08
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -207,8 +212,8 @@ it93h 8089 1 2.72e+08
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 286938797 286938797 286938797 286938797 286938797 286938797 
 [1] "over"  "it93h" "10.5" 
-gini,it93h,disp_sqrt10,0,0,200
-gini,it93h,disp_sqrt,0,0,200
+gini,it93h,disp_sqrt10,0.341,0.0046,200
+gini,it93h,disp_sqrt,0.3426,0.0047,200
 [1] "Loading dataset it95h..."
 it95h 8134 2 289349080
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
@@ -216,8 +221,8 @@ it95h 8134 2 289349080
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 336070799 338322726 340574652 340574652 342826579 345078505 
 [1] "over"  "it95h" "11.6"  "11.9" 
-gini,it95h,disp_sqrt10,0,0,200
-gini,it95h,disp_sqrt,0,0,200
+gini,it95h,disp_sqrt10,0.3366,0.0046,200
+gini,it95h,disp_sqrt,0.3398,0.0053,200
 [1] "Loading dataset it98h..."
 it98h 7147 3 321122300
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -225,8 +230,8 @@ it98h 7147 3 321122300
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 417224493 451432715 485640937 554316647 622862724 760084511 
 [1] "over"  "it98h" "13"    "15.1"  "23.7" 
-gini,it98h,disp_sqrt10,0,0,200
-gini,it98h,disp_sqrt,0,0,200
+gini,it98h,disp_sqrt10,0.3445,0.0056,200
+gini,it98h,disp_sqrt,0.3484,0.0061,200
 [1] "Loading dataset it00h..."
 it00h 8000 5 343990000
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
@@ -234,8 +239,8 @@ it00h 8000 5 343990000
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 357365737 358631763 461748379 455465128 524359763 575220000 
 [1] "over"  "it00h" "10.4"  "10.4"  "13.4"  "15.2"  "16.7" 
-gini,it00h,disp_sqrt10,0,0,200
-gini,it00h,disp_sqrt,0,0,200
+gini,it00h,disp_sqrt10,0.333,0.0049,200
+gini,it00h,disp_sqrt,0.3348,0.0048,200
 [1] "Loading dataset it04h..."
 it04h 8012 8 192540
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -244,8 +249,8 @@ it04h 8012 8 192540
  207411  225163  242773  327622  314045  724000 
  [1] "over"  "it04h" "10.8"  "11.4"  "11.8"  "12.6"  "12.6"  "13"    "26.3" 
 [10] "37.6" 
-gini,it04h,disp_sqrt10,0,0,200
-gini,it04h,disp_sqrt,0,0,200
+gini,it04h,disp_sqrt10,0.328,0.0046,200
+gini,it04h,disp_sqrt,0.3349,0.0063,200
 [1] "Loading dataset it08h..."
 it08h 7977 3 211530
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -253,8 +258,8 @@ it08h 7977 3 211530
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  272038  277309  282580  291459  301170  319760 
 [1] "over"  "it08h" "12.9"  "13.4"  "15.1" 
-gini,it08h,disp_sqrt10,0,0,200
-gini,it08h,disp_sqrt,0,0,200
+gini,it08h,disp_sqrt10,0.3233,0.0053,200
+gini,it08h,disp_sqrt,0.3268,0.006,200
 [1] "Loading dataset it10h..."
 it10h 7941 2 214530
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -262,8 +267,8 @@ it10h 7941 2 214530
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  230982  273855  316728  316728  359601  402474 
 [1] "over"  "it10h" "10.8"  "18.8" 
-gini,it10h,disp_sqrt10,0,0,200
-gini,it10h,disp_sqrt,0,0,200
+gini,it10h,disp_sqrt10,0.3232,0.0047,200
+gini,it10h,disp_sqrt,0.3233,0.0048,200
 [1] "Loading dataset it14h..."
 it14h 8151 1 201290
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -271,11 +276,11 @@ it14h 8151 1 201290
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  249992  249992  249992  249992  249992  249992 
 [1] "over"  "it14h" "12.4" 
-gini,it14h,disp_sqrt10,0,0,200
-gini,it14h,disp_sqrt,0,0,200
+gini,it14h,disp_sqrt10,0.3304,0.0045,200
+gini,it14h,disp_sqrt,0.3325,0.0053,200
 > 
 > proc.time()
    user  system elapsed 
- 43.114   0.429  45.682 
+ 45.841   0.467  60.939 
 
 

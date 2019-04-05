@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614426 ca
-Date: April 5, 2019 at 10:38:22 AM CDT
+Subject: job 614514 ca
+Date: April 5, 2019 at 1:05:51 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ ca71h 25927 0 61600
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ca71h"
-gini,ca71h,disp_sqrt10,0,0,100
-gini,ca71h,disp_sqrt,0,0,100
+gini,ca71h,disp_sqrt10,0.3231,0.002,100
+gini,ca71h,disp_sqrt,0.3232,0.0019,100
 [1] "Loading dataset ca75h..."
 ca75h 26569 0 107100
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -180,8 +185,8 @@ ca75h 26569 0 107100
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ca75h"
-gini,ca75h,disp_sqrt10,0,0,100
-gini,ca75h,disp_sqrt,0,0,100
+gini,ca75h,disp_sqrt10,0.2931,0.0017,100
+gini,ca75h,disp_sqrt,0.2931,0.0018,100
 [1] "Loading dataset ca81h..."
 ca81h 15136 0 196100
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -189,8 +194,8 @@ ca81h 15136 0 196100
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ca81h"
-gini,ca81h,disp_sqrt10,0,0,100
-gini,ca81h,disp_sqrt,0,0,100
+gini,ca81h,disp_sqrt10,0.2858,0.0023,100
+gini,ca81h,disp_sqrt,0.2858,0.0025,100
 [1] "Loading dataset ca87h..."
 ca87h 10999 0 281600
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -198,8 +203,8 @@ ca87h 10999 0 281600
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ca87h"
-gini,ca87h,disp_sqrt10,0,0,100
-gini,ca87h,disp_sqrt,0,0,100
+gini,ca87h,disp_sqrt10,0.2834,0.0035,100
+gini,ca87h,disp_sqrt,0.2834,0.0034,100
 [1] "Loading dataset ca91h..."
 ca91h 20035 0 328520
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -207,8 +212,8 @@ ca91h 20035 0 328520
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ca91h"
-gini,ca91h,disp_sqrt10,0,0,100
-gini,ca91h,disp_sqrt,0,0,100
+gini,ca91h,disp_sqrt10,0.2819,0.003,100
+gini,ca91h,disp_sqrt,0.2824,0.003,100
 [1] "Loading dataset ca94h..."
 ca94h 37475 1 333300
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -216,8 +221,8 @@ ca94h 37475 1 333300
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  368403  368403  368403  368403  368403  368403 
 [1] "over"  "ca94h" "11.1" 
-gini,ca94h,disp_sqrt10,0,0,100
-gini,ca94h,disp_sqrt,0,0,100
+gini,ca94h,disp_sqrt10,0.285,0.0016,100
+gini,ca94h,disp_sqrt,0.2852,0.0017,100
 [1] "Loading dataset ca97h..."
 ca97h 33843 4 341700
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -225,8 +230,8 @@ ca97h 33843 4 341700
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  374239  400391  501548  594752  695910 1001672 
 [1] "over"  "ca97h" "11"    "12"    "17.4"  "29.3" 
-gini,ca97h,disp_sqrt10,0,0,100
-gini,ca97h,disp_sqrt,0,0,100
+gini,ca97h,disp_sqrt10,0.2915,0.0017,100
+gini,ca97h,disp_sqrt,0.2921,0.0018,100
 [1] "Loading dataset ca98h..."
 ca98h 31218 3 351000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -234,8 +239,8 @@ ca98h 31218 3 351000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  436529  467109  497690  483654  507216  516743 
 [1] "over"  "ca98h" "12.4"  "14.2"  "14.7" 
-gini,ca98h,disp_sqrt10,0,0,100
-gini,ca98h,disp_sqrt,0,0,100
+gini,ca98h,disp_sqrt10,0.31,0.0029,100
+gini,ca98h,disp_sqrt,0.3125,0.0034,100
 [1] "Loading dataset ca00h..."
 ca00h 28970 6 364950
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -243,8 +248,8 @@ ca00h 28970 6 364950
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  413452  450351  462302  499586  545063  640445 
 [1] "over"  "ca00h" "11.3"  "12.3"  "12.4"  "13"    "15.6"  "17.5" 
-gini,ca00h,disp_sqrt10,0,0,100
-gini,ca00h,disp_sqrt,0,0,100
+gini,ca00h,disp_sqrt10,0.3135,0.0033,100
+gini,ca00h,disp_sqrt,0.3178,0.004,100
 [1] "Loading dataset ca04h..."
 ca04h 27820 4 420350
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -252,8 +257,8 @@ ca04h 27820 4 420350
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  429568  430728  528564  532594  630431  643679 
 [1] "over"  "ca04h" "10.2"  "10.3"  "14.9"  "15.3" 
-gini,ca04h,disp_sqrt10,0,0,100
-gini,ca04h,disp_sqrt,0,0,100
+gini,ca04h,disp_sqrt10,0.3177,0.0031,100
+gini,ca04h,disp_sqrt,0.3201,0.0036,100
 [1] "Loading dataset ca07h..."
 ca07h 26745 7 481300
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -261,8 +266,8 @@ ca07h 26745 7 481300
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  485492  640718  802103  929311 1012390 1911363 
 [1] "over"  "ca07h" "10.1"  "11.1"  "15.6"  "16.7"  "18.8"  "23.3"  "39.7" 
-gini,ca07h,disp_sqrt10,0,0,110
-gini,ca07h,disp_sqrt,0,0,110
+gini,ca07h,disp_sqrt10,0.3139,0.0027,110
+gini,ca07h,disp_sqrt,0.3182,0.0036,110
 [1] "Loading dataset ca10h..."
 ca10h 25019 5 511150
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -270,8 +275,8 @@ ca10h 25019 5 511150
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  516709  518932  536209  570513  559350  721365 
 [1] "over"  "ca10h" "10.1"  "10.2"  "10.5"  "10.9"  "14.1" 
-gini,ca10h,disp_sqrt10,0,0,110
-gini,ca10h,disp_sqrt,0,0,110
+gini,ca10h,disp_sqrt10,0.3158,0.0033,110
+gini,ca10h,disp_sqrt,0.3179,0.0033,110
 [1] "Loading dataset ca13h..."
 ca13h 23014 0 557250
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -279,11 +284,11 @@ ca13h 23014 0 557250
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ca13h"
-gini,ca13h,disp_sqrt10,0,0,110
-gini,ca13h,disp_sqrt,0,0,110
+gini,ca13h,disp_sqrt10,0.3212,0.0031,110
+gini,ca13h,disp_sqrt,0.3212,0.003,110
 > 
 > proc.time()
    user  system elapsed 
-130.354   1.412 135.991 
+142.802   1.274 148.006 
 
 

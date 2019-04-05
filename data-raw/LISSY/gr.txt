@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614439 gr
-Date: April 5, 2019 at 10:46:36 AM CDT
+Subject: job 614529 gr
+Date: April 5, 2019 at 1:14:40 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ gr95h 4842 0 28600000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "gr95h"
-gini,gr95h,disp_sqrt10,0,0,200
-gini,gr95h,disp_sqrt,0,0,200
+gini,gr95h,disp_sqrt10,0.3532,0.0048,200
+gini,gr95h,disp_sqrt,0.3552,0.0058,200
 [1] "Loading dataset gr00h..."
 gr00h 3895 0 41340000
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
@@ -180,8 +185,8 @@ gr00h 3895 0 41340000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "gr00h"
-gini,gr00h,disp_sqrt10,0,0,200
-gini,gr00h,disp_sqrt,0,0,200
+gini,gr00h,disp_sqrt10,0.335,0.0055,200
+gini,gr00h,disp_sqrt,0.3351,0.0054,200
 [1] "Loading dataset gr04h..."
 gr04h 5568 0 164910
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -189,8 +194,8 @@ gr04h 5568 0 164910
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "gr04h"
-gini,gr04h,disp_sqrt10,0,0,200
-gini,gr04h,disp_sqrt,0,0,200
+gini,gr04h,disp_sqrt10,0.3284,0.005,200
+gini,gr04h,disp_sqrt,0.3292,0.005,200
 [1] "Loading dataset gr07h..."
 gr07h 6503 2 190000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -198,8 +203,8 @@ gr07h 6503 2 190000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  554441  566590  578739  578739  590888  603038 
 [1] "over"  "gr07h" "29.2"  "31.7" 
-gini,gr07h,disp_sqrt10,0,0,120
-gini,gr07h,disp_sqrt,0,0,120
+gini,gr07h,disp_sqrt10,0.3208,0.0048,120
+gini,gr07h,disp_sqrt,0.3301,0.0078,120
 [1] "Loading dataset gr10h..."
 gr10h 6024 0 187000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -207,8 +212,8 @@ gr10h 6024 0 187000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "gr10h"
-gini,gr10h,disp_sqrt10,0,0,120
-gini,gr10h,disp_sqrt,0,0,120
+gini,gr10h,disp_sqrt10,0.3272,0.0059,120
+gini,gr10h,disp_sqrt,0.3275,0.0058,120
 [1] "Loading dataset gr13h..."
 gr13h 8616 0 130230
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -216,11 +221,11 @@ gr13h 8616 0 130230
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "gr13h"
-gini,gr13h,disp_sqrt10,0,0,120
-gini,gr13h,disp_sqrt,0,0,120
+gini,gr13h,disp_sqrt10,0.3315,0.005,120
+gini,gr13h,disp_sqrt,0.3346,0.0059,120
 > 
 > proc.time()
    user  system elapsed 
- 17.983   0.426  19.864 
+ 20.005   0.515  21.309 
 
 

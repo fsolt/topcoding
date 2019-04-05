@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614463 kr
-Date: April 5, 2019 at 10:55:29 AM CDT
+Subject: job 614554 kr
+Date: April 5, 2019 at 1:25:08 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ kr06h 15532 1 257215920
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 301321359 301321359 301321359 301321359 301321359 301321359 
 [1] "over"  "kr06h" "11.7" 
-gini,kr06h,disp_sqrt10,0,0,110
-gini,kr06h,disp_sqrt,0,0,110
+gini,kr06h,disp_sqrt10,0.3057,0.0026,110
+gini,kr06h,disp_sqrt,0.3058,0.0026,110
 [1] "Loading dataset kr08h..."
 kr08h 13655 1 272687520
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -180,8 +185,8 @@ kr08h 13655 1 272687520
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 357328902 357328902 357328902 357328902 357328902 357328902 
 [1] "over"  "kr08h" "13.1" 
-gini,kr08h,disp_sqrt10,0,0,110
-gini,kr08h,disp_sqrt,0,0,110
+gini,kr08h,disp_sqrt10,0.3138,0.0029,110
+gini,kr08h,disp_sqrt,0.3139,0.003,110
 [1] "Loading dataset kr10h..."
 kr10h 13317 1 298427400
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -189,8 +194,8 @@ kr10h 13317 1 298427400
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 5.29e+08 5.29e+08 5.29e+08 5.29e+08 5.29e+08 5.29e+08 
 [1] "over"  "kr10h" "17.7" 
-gini,kr10h,disp_sqrt10,0,0,110
-gini,kr10h,disp_sqrt,0,0,110
+gini,kr10h,disp_sqrt10,0.309,0.0029,110
+gini,kr10h,disp_sqrt,0.31,0.0032,110
 [1] "Loading dataset kr12h..."
 kr12h 13075 1 330533280
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -198,11 +203,11 @@ kr12h 13075 1 330533280
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
 428105440 428105440 428105440 428105440 428105440 428105440 
 [1] "over"  "kr12h" "13"   
-gini,kr12h,disp_sqrt10,0,0,110
-gini,kr12h,disp_sqrt,0,0,110
+gini,kr12h,disp_sqrt10,0.3065,0.0033,110
+gini,kr12h,disp_sqrt,0.3068,0.0031,110
 > 
 > proc.time()
    user  system elapsed 
- 22.704   0.596  24.364 
+ 24.815   0.576  26.218 
 
 

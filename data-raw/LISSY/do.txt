@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614432 do
-Date: April 5, 2019 at 10:43:28 AM CDT
+Subject: job 614521 do
+Date: April 5, 2019 at 1:11:47 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -172,11 +177,11 @@ do07h 8356 11 1313460
 1370185 1438229 1980000 2192278 2391692 5395632 
  [1] "over"  "do07h" "10.4"  "10.4"  "10.6"  "11.3"  "11.4"  "15.1"  "16.1" 
 [10] "17.1"  "19.4"  "20.8"  "41.1" 
-gini,do07h,disp_sqrt10,0,0,110
-gini,do07h,disp_sqrt,0,0,110
+gini,do07h,disp_sqrt10,0.488,0.0057,110
+gini,do07h,disp_sqrt,0.5154,0.0094,110
 > 
 > proc.time()
    user  system elapsed 
-  4.811   0.435   5.736 
+  5.129   0.387   6.218 
 
 

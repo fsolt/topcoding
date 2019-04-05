@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614450 mx
-Date: April 5, 2019 at 10:51:00 AM CDT
+Subject: job 614541 mx
+Date: April 5, 2019 at 1:19:39 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ mx84h 4735 4 3965140
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
  3997973  4072128  4667556  6288271  6883699 11820000 
 [1] "over"  "mx84h" "10.1"  "10.3"  "13.2"  "29.8" 
-gini,mx84h,disp_sqrt10,0,0,200
-gini,mx84h,disp_sqrt,0,0,200
+gini,mx84h,disp_sqrt10,0.4304,0.0079,200
+gini,mx84h,disp_sqrt,0.4341,0.0083,200
 [1] "Loading dataset mx89h..."
 mx89h 11531 20 72520000
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
@@ -182,8 +187,8 @@ mx89h 11531 20 72520000
  [1] "over"  "mx89h" "10.1"  "10.3"  "10.4"  "10.5"  "10.5"  "11.7"  "11.8" 
 [10] "12"    "12.5"  "12.6"  "12.7"  "12.8"  "13.1"  "13.3"  "16.5"  "19"   
 [19] "25.7"  "45.1"  "117.3" "132"  
-gini,mx89h,disp_sqrt10,0,0,200
-gini,mx89h,disp_sqrt,0,0,200
+gini,mx89h,disp_sqrt10,0.4505,0.0055,200
+gini,mx89h,disp_sqrt,0.4768,0.0114,200
 [1] "Loading dataset mx92h..."
 mx92h 10530 18 134400000
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -193,8 +198,8 @@ mx92h 10530 18 134400000
  [1] "over"  "mx92h" "10.1"  "10.7"  "11"    "11.4"  "11.4"  "12.2"  "13.4" 
 [10] "14.6"  "15"    "15.2"  "16"    "16.5"  "16.7"  "16.8"  "17.6"  "25.4" 
 [19] "33.3"  "68"   
-gini,mx92h,disp_sqrt10,0,0,200
-gini,mx92h,disp_sqrt,0,0,200
+gini,mx92h,disp_sqrt10,0.4735,0.0057,200
+gini,mx92h,disp_sqrt,0.5008,0.0097,200
 [1] "Loading dataset mx94h..."
 mx94h 12815 23 158000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -204,8 +209,8 @@ mx94h 12815 23 158000
  [1] "over"  "mx94h" "10.3"  "10.6"  "10.9"  "11.4"  "11.6"  "11.7"  "11.9" 
 [10] "12.3"  "12.3"  "12.3"  "13.2"  "13.7"  "14.4"  "15.2"  "15.5"  "15.9" 
 [19] "16.1"  "16.1"  "16.1"  "20.9"  "21.5"  "21.5"  "55.8" 
-gini,mx94h,disp_sqrt10,0,0,200
-gini,mx94h,disp_sqrt,0,0,200
+gini,mx94h,disp_sqrt10,0.4824,0.0046,200
+gini,mx94h,disp_sqrt,0.5057,0.0077,200
 [1] "Loading dataset mx96h..."
 mx96h 14042 15 219930
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -214,8 +219,8 @@ mx96h 14042 15 219930
  220617  270452  311885  455492  395732 1550266 
  [1] "over"  "mx96h" "11.8"  "11.9"  "12.1"  "12.5"  "13.2"  "13.4"  "14.2" 
 [10] "14.3"  "14.4"  "16.2"  "19.8"  "20.7"  "55.8"  "70.5" 
-gini,mx96h,disp_sqrt10,0,0,200
-gini,mx96h,disp_sqrt,0,0,200
+gini,mx96h,disp_sqrt10,0.4689,0.004,200
+gini,mx96h,disp_sqrt,0.4921,0.0093,200
 [1] "Loading dataset mx98h..."
 mx98h 10952 18 317400
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -225,8 +230,8 @@ mx98h 10952 18 317400
  [1] "over"  "mx98h" "10.1"  "10.3"  "11"    "11.3"  "11.8"  "12.2"  "13"   
 [10] "15.3"  "15.3"  "15.8"  "17.6"  "18.3"  "18.4"  "18.9"  "20.1"  "23.3" 
 [19] "51.6"  "120.4"
-gini,mx98h,disp_sqrt10,0,0,200
-gini,mx98h,disp_sqrt,0,0,200
+gini,mx98h,disp_sqrt10,0.4859,0.0045,200
+gini,mx98h,disp_sqrt,0.5059,0.0065,200
 [1] "Loading dataset mx00h..."
 mx00h 10108 20 480000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -236,8 +241,8 @@ mx00h 10108 20 480000
  [1] "over"  "mx00h" "10.5"  "10.5"  "10.6"  "10.8"  "11.1"  "11.2"  "11.2" 
 [10] "11.6"  "11.7"  "13.3"  "13.3"  "13.4"  "13.8"  "15"    "16.2"  "17"   
 [19] "17.8"  "21.5"  "28"    "34.3" 
-gini,mx00h,disp_sqrt10,0,0,200
-gini,mx00h,disp_sqrt,0,0,200
+gini,mx00h,disp_sqrt10,0.4849,0.0063,200
+gini,mx00h,disp_sqrt,0.4998,0.0073,200
 [1] "Loading dataset mx02h..."
 mx02h 17167 8 548000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -246,8 +251,8 @@ mx02h 17167 8 548000
  555800  589553  620027  624005  673167  691550 
  [1] "over"  "mx02h" "10.1"  "10.2"  "10.9"  "11"    "11.6"  "12.3"  "12.3" 
 [10] "12.6" 
-gini,mx02h,disp_sqrt10,0,0,200
-gini,mx02h,disp_sqrt,0,0,200
+gini,mx02h,disp_sqrt10,0.4661,0.0054,200
+gini,mx02h,disp_sqrt,0.4753,0.0072,200
 [1] "Loading dataset mx04h..."
 mx04h 22595 41 606000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -259,8 +264,8 @@ mx04h 22595 41 606000
 [19] "12.8"  "12.9"  "13.1"  "14"    "14.8"  "15.3"  "15.3"  "15.4"  "15.8" 
 [28] "17.2"  "17.6"  "19.5"  "19.6"  "20.6"  "20.6"  "21"    "21"    "24.8" 
 [37] "25.5"  "26.6"  "45.7"  "67"    "92.9"  "101.8" "217.8"
-gini,mx04h,disp_sqrt10,0,0,200
-gini,mx04h,disp_sqrt,0,0,200
+gini,mx04h,disp_sqrt10,0.4547,0.0036,200
+gini,mx04h,disp_sqrt,0.4715,0.0048,200
 [1] "Loading dataset mx08h..."
 mx08h 29468 76 818510
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -276,8 +281,8 @@ mx08h 29468 76 818510
 [55] "18.2"  "18.2"  "18.4"  "18.4"  "18.6"  "19.1"  "20.5"  "21.1"  "21.7" 
 [64] "23.2"  "24.3"  "25.5"  "27.3"  "28.1"  "28.8"  "29"    "30.4"  "31.1" 
 [73] "34.7"  "54.9"  "58"    "86"    "212.1"
-gini,mx08h,disp_sqrt10,0,0,200
-gini,mx08h,disp_sqrt,0,0,200
+gini,mx08h,disp_sqrt10,0.4674,0.0028,200
+gini,mx08h,disp_sqrt,0.4892,0.0045,200
 [1] "Loading dataset mx10h..."
 mx10h 27655 34 812330
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -288,8 +293,8 @@ mx10h 27655 34 812330
 [10] "12"    "12.4"  "12.5"  "12.6"  "12.6"  "12.7"  "12.9"  "13.4"  "13.5" 
 [19] "13.8"  "14.6"  "14.9"  "16.6"  "18.5"  "18.8"  "19.1"  "19.3"  "19.4" 
 [28] "19.9"  "20.3"  "22.1"  "22.7"  "23.1"  "23.7"  "23.8"  "25.5"  "31.5" 
-gini,mx10h,disp_sqrt10,0,0,200
-gini,mx10h,disp_sqrt,0,0,200
+gini,mx10h,disp_sqrt10,0.4545,0.003,200
+gini,mx10h,disp_sqrt,0.4655,0.0035,200
 [1] "Loading dataset mx12h..."
 mx12h 9002 14 901370
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -298,11 +303,11 @@ mx12h 9002 14 901370
  944150 1015606 1098880 1336026 1362375 3171578 
  [1] "over"  "mx12h" "10.5"  "10.5"  "11.1"  "11.3"  "11.3"  "12.1"  "12.1" 
 [10] "12.3"  "12.5"  "12.8"  "15.9"  "17.4"  "22.7"  "35.2" 
-gini,mx12h,disp_sqrt10,0,0,200
-gini,mx12h,disp_sqrt,0,0,200
+gini,mx12h,disp_sqrt10,0.4572,0.005,200
+gini,mx12h,disp_sqrt,0.4721,0.0073,200
 > 
 > proc.time()
    user  system elapsed 
- 74.960   1.285  79.402 
+ 79.834   1.201  83.798 
 
 

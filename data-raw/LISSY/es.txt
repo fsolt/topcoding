@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614464 es
-Date: April 5, 2019 at 10:56:11 AM CDT
+Subject: job 614555 es
+Date: April 5, 2019 at 1:26:00 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ es80h 23939 1 5600000
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 11693366 11693366 11693366 11693366 11693366 11693366 
 [1] "over"  "es80h" "20.9" 
-gini,es80h,disp_sqrt10,0,0,200
-gini,es80h,disp_sqrt,0,0,200
+gini,es80h,disp_sqrt10,0.3178,0.0024,200
+gini,es80h,disp_sqrt,0.3205,0.0037,200
 [1] "Loading dataset es85h..."
 es85h 3165 0 9460310
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -180,8 +185,8 @@ es85h 3165 0 9460310
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "es85h"
-gini,es85h,disp_sqrt10,0,0,200
-gini,es85h,disp_sqrt,0,0,200
+gini,es85h,disp_sqrt10,0.3141,0.0057,200
+gini,es85h,disp_sqrt,0.3149,0.0059,200
 [1] "Loading dataset es90h..."
 es90h 21153 2 15902960
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
@@ -189,8 +194,8 @@ es90h 21153 2 15902960
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 17889802 20841972 23794143 23794143 26746314 29698485 
 [1] "over"  "es90h" "11.2"  "18.7" 
-gini,es90h,disp_sqrt10,0,0,200
-gini,es90h,disp_sqrt,0,0,200
+gini,es90h,disp_sqrt10,0.3025,0.0027,200
+gini,es90h,disp_sqrt,0.305,0.0035,200
 [1] "Loading dataset es95h..."
 es95h 5928 0 21620000
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
@@ -198,8 +203,8 @@ es95h 5928 0 21620000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "es95h"
-gini,es95h,disp_sqrt10,0,0,200
-gini,es95h,disp_sqrt,0,0,200
+gini,es95h,disp_sqrt10,0.3554,0.0046,200
+gini,es95h,disp_sqrt,0.3582,0.0052,200
 [1] "Loading dataset es00h..."
 es00h 4776 1 29070000
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA's 
@@ -207,8 +212,8 @@ es00h 4776 1 29070000
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 30971277 30971277 30971277 30971277 30971277 30971277 
 [1] "over"  "es00h" "10.7" 
-gini,es00h,disp_sqrt10,0,0,200
-gini,es00h,disp_sqrt,0,0,200
+gini,es00h,disp_sqrt10,0.3351,0.0052,200
+gini,es00h,disp_sqrt,0.3368,0.0056,200
 [1] "Loading dataset es04h..."
 es04h 12996 1 193190
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -216,8 +221,8 @@ es04h 12996 1 193190
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  209882  209882  209882  209882  209882  209882 
 [1] "over"  "es04h" "10.9" 
-gini,es04h,disp_sqrt10,0,0,200
-gini,es04h,disp_sqrt,0,0,200
+gini,es04h,disp_sqrt10,0.3208,0.0029,200
+gini,es04h,disp_sqrt,0.3215,0.0031,200
 [1] "Loading dataset es07h..."
 es07h 13014 0 230550
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -225,8 +230,8 @@ es07h 13014 0 230550
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "es07h"
-gini,es07h,disp_sqrt10,0,0,110
-gini,es07h,disp_sqrt,0,0,110
+gini,es07h,disp_sqrt10,0.3077,0.003,110
+gini,es07h,disp_sqrt,0.3077,0.0028,110
 [1] "Loading dataset es10h..."
 es10h 13109 0 213540
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -234,8 +239,8 @@ es10h 13109 0 213540
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "es10h"
-gini,es10h,disp_sqrt10,0,0,110
-gini,es10h,disp_sqrt,0,0,110
+gini,es10h,disp_sqrt10,0.3372,0.0029,110
+gini,es10h,disp_sqrt,0.3372,0.0028,110
 [1] "Loading dataset es13h..."
 es13h 11965 0 218190
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -243,11 +248,11 @@ es13h 11965 0 218190
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "es13h"
-gini,es13h,disp_sqrt10,0,0,110
-gini,es13h,disp_sqrt,0,0,110
+gini,es13h,disp_sqrt10,0.3452,0.0031,110
+gini,es13h,disp_sqrt,0.3455,0.0032,110
 > 
 > proc.time()
    user  system elapsed 
- 45.959   0.763  49.263 
+ 48.758   0.876  51.256 
 
 

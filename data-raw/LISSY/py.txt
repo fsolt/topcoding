@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614454 py
-Date: April 5, 2019 at 10:51:14 AM CDT
+Subject: job 614545 py
+Date: April 5, 2019 at 1:20:37 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -174,8 +179,8 @@ py00h 8126 28 121200000
 [10] "11.2"  "11.3"  "11.4"  "12.3"  "12.7"  "12.9"  "12.9"  "13.1"  "13.7" 
 [19] "15.3"  "16.4"  "24"    "24.8"  "27.7"  "28.5"  "34.4"  "46.3"  "49.4" 
 [28] "61.4"  "95.1"  "95.7" 
-gini,py00h,disp_sqrt10,0,0,200
-gini,py00h,disp_sqrt,0,0,200
+gini,py00h,disp_sqrt10,0.5088,0.0059,200
+gini,py00h,disp_sqrt,0.5414,0.0097,200
 [1] "Loading dataset py04h..."
 py04h 7817 30 141029840
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
@@ -186,8 +191,8 @@ py04h 7817 30 141029840
 [10] "11.8"  "12.7"  "13.2"  "13.5"  "14.5"  "15"    "15.5"  "17.1"  "19.2" 
 [19] "19.3"  "19.9"  "20.3"  "20.8"  "24.5"  "25.9"  "32"    "34.3"  "35.7" 
 [28] "38.8"  "40.5"  "47.4"  "62.3" 
-gini,py04h,disp_sqrt10,0,0,300
-gini,py04h,disp_sqrt,0,0,300
+gini,py04h,disp_sqrt10,0.4718,0.0051,300
+gini,py04h,disp_sqrt,0.508,0.0095,300
 [1] "Loading dataset py07h..."
 py07h 4802 16 2e+08
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
@@ -196,8 +201,8 @@ py07h 4802 16 2e+08
 2.071e+08 2.749e+08 3.675e+08 8.059e+08 9.563e+08 4.274e+09 
  [1] "over"  "py07h" "10.4"  "12"    "12.1"  "13.2"  "13.9"  "14.5"  "16.1" 
 [10] "18"    "18.8"  "40.3"  "40.6"  "46.5"  "51.7"  "51.9"  "71"    "213.7"
-gini,py07h,disp_sqrt10,0,0,200
-gini,py07h,disp_sqrt,0,0,200
+gini,py07h,disp_sqrt10,0.4722,0.0058,200
+gini,py07h,disp_sqrt,0.5167,0.0138,200
 [1] "Loading dataset py10h..."
 py10h 4999 23 255175550
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
@@ -207,8 +212,8 @@ py10h 4999 23 255175550
  [1] "over"  "py10h" "10.3"  "10.5"  "10.9"  "10.9"  "11"    "11.4"  "12.2" 
 [10] "12.2"  "12.4"  "13.4"  "14"    "16"    "17.2"  "19"    "19.1"  "19.7" 
 [19] "24.8"  "34.6"  "40.1"  "41"    "41.9"  "47.5"  "148.8"
-gini,py10h,disp_sqrt10,0,0,200
-gini,py10h,disp_sqrt,0,0,200
+gini,py10h,disp_sqrt10,0.4729,0.0057,200
+gini,py10h,disp_sqrt,0.5099,0.0136,200
 [1] "Loading dataset py13h..."
 py13h 5397 15 354682200
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
@@ -217,8 +222,8 @@ py13h 5397 15 354682200
 3.697e+08 3.845e+08 3.910e+08 5.708e+08 7.361e+08 1.280e+09 
  [1] "over"  "py13h" "10.4"  "10.6"  "10.8"  "10.8"  "10.9"  "11"    "11"   
 [10] "11"    "12.1"  "15.2"  "20.2"  "21.3"  "24.7"  "25.2"  "36.1" 
-gini,py13h,disp_sqrt10,0,0,200
-gini,py13h,disp_sqrt,0,0,200
+gini,py13h,disp_sqrt10,0.4635,0.0055,200
+gini,py13h,disp_sqrt,0.4793,0.0074,200
 [1] "Loading dataset py16h..."
 py16h 10219 33 3.6e+08
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -229,11 +234,11 @@ py16h 10219 33 3.6e+08
 [10] "11.3"  "11.5"  "11.7"  "11.9"  "12.4"  "12.6"  "12.7"  "12.9"  "13.1" 
 [19] "13.4"  "13.5"  "14.9"  "15.3"  "16"    "16.9"  "18.3"  "18.7"  "20.3" 
 [28] "21.3"  "26.7"  "26.7"  "26.8"  "27"    "27"    "44.1" 
-gini,py16h,disp_sqrt10,0,0,200
-gini,py16h,disp_sqrt,0,0,200
+gini,py16h,disp_sqrt10,0.4592,0.0044,200
+gini,py16h,disp_sqrt,0.4885,0.0078,200
 > 
 > proc.time()
    user  system elapsed 
- 19.951   0.440  21.373 
+ 21.479   0.492  23.206 
 
 

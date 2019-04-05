@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614434 ee
-Date: April 5, 2019 at 10:44:05 AM CDT
+Subject: job 614524 ee
+Date: April 5, 2019 at 1:12:21 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ ee00h 6068 3 491160
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  515218  555854  596490  574998  604888  613285 
 [1] "over"  "ee00h" "10.5"  "12.1"  "12.5" 
-gini,ee00h,disp_sqrt10,0,0,320
-gini,ee00h,disp_sqrt,0,0,320
+gini,ee00h,disp_sqrt10,0.3598,0.0048,320
+gini,ee00h,disp_sqrt,0.3641,0.0055,320
 [1] "Loading dataset ee04h..."
 ee04h 4155 0 708760
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -180,8 +185,8 @@ ee04h 4155 0 708760
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ee04h"
-gini,ee04h,disp_sqrt10,0,0,100
-gini,ee04h,disp_sqrt,0,0,100
+gini,ee04h,disp_sqrt10,0.3481,0.0059,100
+gini,ee04h,disp_sqrt,0.3495,0.0059,100
 [1] "Loading dataset ee07h..."
 ee07h 4744 0 1246570
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -189,8 +194,8 @@ ee07h 4744 0 1246570
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ee07h"
-gini,ee07h,disp_sqrt10,0,0,120
-gini,ee07h,disp_sqrt,0,0,120
+gini,ee07h,disp_sqrt10,0.3117,0.0049,120
+gini,ee07h,disp_sqrt,0.313,0.0052,120
 [1] "Loading dataset ee10h..."
 ee10h 4993 0 1227910
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -198,8 +203,8 @@ ee10h 4993 0 1227910
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ee10h"
-gini,ee10h,disp_sqrt10,0,0,120
-gini,ee10h,disp_sqrt,0,0,120
+gini,ee10h,disp_sqrt10,0.32,0.0046,120
+gini,ee10h,disp_sqrt,0.32,0.0046,120
 [1] "Loading dataset ee13h..."
 ee13h 5772 0 101920
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -207,11 +212,11 @@ ee13h 5772 0 101920
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ee13h"
-gini,ee13h,disp_sqrt10,0,0,120
-gini,ee13h,disp_sqrt,0,0,120
+gini,ee13h,disp_sqrt10,0.3533,0.0045,120
+gini,ee13h,disp_sqrt,0.3537,0.0046,120
 > 
 > proc.time()
    user  system elapsed 
- 14.536   0.387  16.050 
+ 15.260   0.407  16.300 
 
 

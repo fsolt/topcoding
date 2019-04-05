@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614430 cz
-Date: April 5, 2019 at 10:40:53 AM CDT
+Subject: job 614518 cz
+Date: April 5, 2019 at 1:07:36 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ cz92h 16234 0 774000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "cz92h"
-gini,cz92h,disp_sqrt10,0,0,100
-gini,cz92h,disp_sqrt,0,0,100
+gini,cz92h,disp_sqrt10,0.2049,0.0024,100
+gini,cz92h,disp_sqrt,0.2058,0.0025,100
 [1] "Loading dataset cz96h..."
 cz96h 28148 4 1431000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -180,8 +185,8 @@ cz96h 28148 4 1431000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 1512000 1701120 1988430 2028865 2316175 2626600 
 [1] "over"  "cz96h" "10.6"  "12.3"  "15.5"  "18.4" 
-gini,cz96h,disp_sqrt10,0,0,100
-gini,cz96h,disp_sqrt,0,0,100
+gini,cz96h,disp_sqrt10,0.2554,0.0021,100
+gini,cz96h,disp_sqrt,0.2566,0.0022,100
 [1] "Loading dataset cz02h..."
 cz02h 7973 2 1979190
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -189,8 +194,8 @@ cz02h 7973 2 1979190
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 1982728 2123404 2264080 2264080 2404757 2545433 
 [1] "over"  "cz02h" "12.9" 
-gini,cz02h,disp_sqrt10,0,0,120
-gini,cz02h,disp_sqrt,0,0,120
+gini,cz02h,disp_sqrt10,0.255,0.0035,120
+gini,cz02h,disp_sqrt,0.2556,0.0035,120
 [1] "Loading dataset cz04h..."
 cz04h 4351 1 2221770
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -198,8 +203,8 @@ cz04h 4351 1 2221770
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 3040173 3040173 3040173 3040173 3040173 3040173 
 [1] "over"  "cz04h" "13.7" 
-gini,cz04h,disp_sqrt10,0,0,100
-gini,cz04h,disp_sqrt,0,0,100
+gini,cz04h,disp_sqrt10,0.2644,0.0055,100
+gini,cz04h,disp_sqrt,0.2666,0.0063,100
 [1] "Loading dataset cz07h..."
 cz07h 11294 1 2809840
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -207,8 +212,8 @@ cz07h 11294 1 2809840
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 2861257 2861257 2861257 2861257 2861257 2861257 
 [1] "over"  "cz07h" "10.2" 
-gini,cz07h,disp_sqrt10,0,0,100
-gini,cz07h,disp_sqrt,0,0,100
+gini,cz07h,disp_sqrt10,0.251,0.0036,100
+gini,cz07h,disp_sqrt,0.2519,0.0039,100
 [1] "Loading dataset cz10h..."
 cz10h 8866 0 3181160
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -216,8 +221,8 @@ cz10h 8866 0 3181160
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "cz10h"
-gini,cz10h,disp_sqrt10,0,0,100
-gini,cz10h,disp_sqrt,0,0,100
+gini,cz10h,disp_sqrt10,0.2564,0.0038,100
+gini,cz10h,disp_sqrt,0.2564,0.0036,100
 [1] "Loading dataset cz13h..."
 cz13h 8053 2 3211000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -225,11 +230,11 @@ cz13h 8053 2 3211000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 3529090 3663529 3797968 3797968 3932408 4066847 
 [1] "over"  "cz13h" "11"    "12.7" 
-gini,cz13h,disp_sqrt10,0,0,100
-gini,cz13h,disp_sqrt,0,0,100
+gini,cz13h,disp_sqrt10,0.2571,0.004,100
+gini,cz13h,disp_sqrt,0.2587,0.0046,100
 > 
 > proc.time()
    user  system elapsed 
- 35.235   0.917  53.824 
+ 38.613   0.984  41.095 
 
 

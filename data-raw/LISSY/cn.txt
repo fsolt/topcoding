@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614428 cn
-Date: April 5, 2019 at 10:38:50 AM CDT
+Subject: job 614516 cn
+Date: April 5, 2019 at 1:06:09 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ cn02h 17113 1 137310
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  151571  151571  151571  151571  151571  151571 
 [1] "over"  "cn02h" "11"   
-gini,cn02h,disp_sqrt10,0,0,300
-gini,cn02h,disp_sqrt,0,0,300
+gini,cn02h,disp_sqrt10,0.4143,0.0024,300
+gini,cn02h,disp_sqrt,0.4155,0.0026,300
 [1] "Loading dataset cn13h..."
 cn13h 17887 3 485000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -180,11 +185,11 @@ cn13h 17887 3 485000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  716581  752042  787504  827852  883488  979472 
 [1] "over"  "cn13h" "14.8"  "16.2"  "20.2" 
-gini,cn13h,disp_sqrt10,0,0,100
-gini,cn13h,disp_sqrt,0,0,100
+gini,cn13h,disp_sqrt10,0.3963,0.0031,100
+gini,cn13h,disp_sqrt,0.3999,0.0038,100
 > 
 > proc.time()
    user  system elapsed 
- 15.737   0.739  17.474 
+ 16.506   0.686  17.747 
 
 

@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614447 jp
-Date: April 5, 2019 at 10:49:34 AM CDT
+Subject: job 614538 jp
+Date: April 5, 2019 at 1:17:39 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,11 +176,11 @@ jp08h 3360 0 60328240
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "jp08h"
-gini,jp08h,disp_sqrt10,0,0,120
-gini,jp08h,disp_sqrt,0,0,120
+gini,jp08h,disp_sqrt10,0.3018,0.0052,120
+gini,jp08h,disp_sqrt,0.3018,0.0055,120
 > 
 > proc.time()
    user  system elapsed 
-  3.402   0.240   4.062 
+  3.190   0.244   3.825 
 
 

@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614456 pl
-Date: April 5, 2019 at 10:53:13 AM CDT
+Subject: job 614547 pl
+Date: April 5, 2019 at 1:22:50 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ pl86h 10646 0 4422000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "pl86h"
-gini,pl86h,disp_sqrt10,0,0,200
-gini,pl86h,disp_sqrt,0,0,200
+gini,pl86h,disp_sqrt10,0.2706,0.0025,200
+gini,pl86h,disp_sqrt,0.2709,0.0026,200
 [1] "Loading dataset pl92h..."
 pl92h 6602 0 491800000
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
@@ -180,8 +185,8 @@ pl92h 6602 0 491800000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "pl92h"
-gini,pl92h,disp_sqrt10,0,0,200
-gini,pl92h,disp_sqrt,0,0,200
+gini,pl92h,disp_sqrt10,0.2619,0.0036,200
+gini,pl92h,disp_sqrt,0.2622,0.0038,200
 [1] "Loading dataset pl95h..."
 pl95h 32009 11 87560
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -190,8 +195,8 @@ pl95h 32009 11 87560
   97105  103766  109032  129282  158085  194582 
  [1] "over"  "pl95h" "11.1"  "11.3"  "11.8"  "11.9"  "12.2"  "12.5"  "14.2" 
 [10] "17.1"  "19"    "19.2"  "22.2" 
-gini,pl95h,disp_sqrt10,0,0,320
-gini,pl95h,disp_sqrt,0,0,320
+gini,pl95h,disp_sqrt10,0.3174,0.0021,320
+gini,pl95h,disp_sqrt,0.3238,0.0029,320
 [1] "Loading dataset pl99h..."
 pl99h 31428 4 178790
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -199,8 +204,8 @@ pl99h 31428 4 178790
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  218079  235431  248885  462482  475936 1134081 
 [1] "over"  "pl99h" "12.2"  "13.5"  "14.3"  "63.4" 
-gini,pl99h,disp_sqrt10,0,0,320
-gini,pl99h,disp_sqrt,0,0,320
+gini,pl99h,disp_sqrt10,0.2865,0.0018,320
+gini,pl99h,disp_sqrt,0.2918,0.0036,320
 [1] "Loading dataset pl04h..."
 pl04h 32214 6 204000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -208,8 +213,8 @@ pl04h 32214 6 204000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  212132  222665  251457  295736  323840  498332 
 [1] "over"  "pl04h" "10.4"  "10.8"  "11.2"  "13.4"  "16.7"  "24.4" 
-gini,pl04h,disp_sqrt10,0,0,320
-gini,pl04h,disp_sqrt,0,0,320
+gini,pl04h,disp_sqrt10,0.3154,0.0018,320
+gini,pl04h,disp_sqrt,0.3195,0.0023,320
 [1] "Loading dataset pl07h..."
 pl07h 37366 9 257410
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -218,8 +223,8 @@ pl07h 37366 9 257410
  308106  411636  493139  554170  585000 1026864 
  [1] "over"  "pl07h" "12"    "12.8"  "16"    "18.7"  "19.2"  "19.3"  "22.7" 
 [10] "33.2"  "39.9" 
-gini,pl07h,disp_sqrt10,0,0,320
-gini,pl07h,disp_sqrt,0,0,320
+gini,pl07h,disp_sqrt10,0.3098,0.0018,320
+gini,pl07h,disp_sqrt,0.3156,0.0027,320
 [1] "Loading dataset pl10h..."
 pl10h 37412 13 336000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -228,8 +233,8 @@ pl10h 37412 13 336000
  337393  378682  510163  709522  803259 2309472 
  [1] "over"  "pl10h" "10.3"  "10.8"  "11.3"  "13.2"  "14"    "15.2"  "16.6" 
 [10] "18.1"  "23.9"  "26"    "36.4"  "68.7" 
-gini,pl10h,disp_sqrt10,0,0,320
-gini,pl10h,disp_sqrt,0,0,320
+gini,pl10h,disp_sqrt10,0.31,0.0016,320
+gini,pl10h,disp_sqrt,0.3139,0.0024,320
 [1] "Loading dataset pl13h..."
 pl13h 37181 10 363100
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -238,8 +243,8 @@ pl13h 37181 10 363100
  367410  398751  441171  857161  653741 3926717 
  [1] "over"  "pl13h" "10.1"  "10.5"  "11"    "11.1"  "11.4"  "12.9"  "13.5" 
 [10] "19.5"  "28"    "108.1"
-gini,pl13h,disp_sqrt10,0,0,320
-gini,pl13h,disp_sqrt,0,0,320
+gini,pl13h,disp_sqrt10,0.3166,0.0018,320
+gini,pl13h,disp_sqrt,0.322,0.0032,320
 [1] "Loading dataset pl16h..."
 pl16h 36886 2 426360
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -247,11 +252,11 @@ pl16h 36886 2 426360
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  493920 1372376 2250831 2250831 3129287 4007742 
 [1] "over"  "pl16h" "11.6"  "94"   
-gini,pl16h,disp_sqrt10,0,0,320
-gini,pl16h,disp_sqrt,0,0,320
+gini,pl16h,disp_sqrt10,0.2891,0.0018,320
+gini,pl16h,disp_sqrt,0.2901,0.0019,320
 > 
 > proc.time()
    user  system elapsed 
-106.951   1.522 111.985 
+116.814   1.540 121.054 
 
 

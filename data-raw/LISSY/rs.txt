@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614459 rs
-Date: April 5, 2019 at 10:53:35 AM CDT
+Subject: job 614550 rs
+Date: April 5, 2019 at 1:23:11 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ rs06h 4560 0 3e+06
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "rs06h"
-gini,rs06h,disp_sqrt10,0,0,200
-gini,rs06h,disp_sqrt,0,0,200
+gini,rs06h,disp_sqrt10,0.3509,0.0046,200
+gini,rs06h,disp_sqrt,0.3511,0.0051,200
 [1] "Loading dataset rs10h..."
 rs10h 4581 0 4347370
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -180,8 +185,8 @@ rs10h 4581 0 4347370
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "rs10h"
-gini,rs10h,disp_sqrt10,0,0,200
-gini,rs10h,disp_sqrt,0,0,200
+gini,rs10h,disp_sqrt10,0.3268,0.0047,200
+gini,rs10h,disp_sqrt,0.3287,0.0052,200
 [1] "Loading dataset rs13h..."
 rs13h 4506 2 5040430
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -189,8 +194,8 @@ rs13h 4506 2 5040430
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 5985044 6268149 6551254 6551254 6834359 7117464 
 [1] "over"  "rs13h" "11.9"  "14.1" 
-gini,rs13h,disp_sqrt10,0,0,200
-gini,rs13h,disp_sqrt,0,0,200
+gini,rs13h,disp_sqrt10,0.339,0.0052,200
+gini,rs13h,disp_sqrt,0.3464,0.0069,200
 [1] "Loading dataset rs16h..."
 rs16h 6448 0 5760000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -198,11 +203,11 @@ rs16h 6448 0 5760000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "rs16h"
-gini,rs16h,disp_sqrt10,0,0,200
-gini,rs16h,disp_sqrt,0,0,200
+gini,rs16h,disp_sqrt10,0.3268,0.0042,200
+gini,rs16h,disp_sqrt,0.3282,0.0045,200
 > 
 > proc.time()
    user  system elapsed 
- 11.296   0.343  12.646 
+ 12.079   0.371  13.341 
 
 

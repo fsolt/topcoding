@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614451 nl
-Date: April 5, 2019 at 10:50:24 AM CDT
+Subject: job 614542 nl
+Date: April 5, 2019 at 1:19:03 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ nl83h 4833 0 313500
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "nl83h"
-gini,nl83h,disp_sqrt10,0,0,100
-gini,nl83h,disp_sqrt,0,0,100
+gini,nl83h,disp_sqrt10,0.2552,0.008,100
+gini,nl83h,disp_sqrt,0.2552,0.0077,100
 [1] "Loading dataset nl87h..."
 nl87h 4190 0 315200
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -180,8 +185,8 @@ nl87h 4190 0 315200
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "nl87h"
-gini,nl87h,disp_sqrt10,0,0,100
-gini,nl87h,disp_sqrt,0,0,100
+gini,nl87h,disp_sqrt10,0.2375,0.0037,100
+gini,nl87h,disp_sqrt,0.2375,0.0037,100
 [1] "Loading dataset nl90h..."
 nl90h 4378 1 398880
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -189,8 +194,8 @@ nl90h 4378 1 398880
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  605984  605984  605984  605984  605984  605984 
 [1] "over"  "nl90h" "15.2" 
-gini,nl90h,disp_sqrt10,0,0,100
-gini,nl90h,disp_sqrt,0,0,100
+gini,nl90h,disp_sqrt10,0.2682,0.0045,100
+gini,nl90h,disp_sqrt,0.2716,0.0056,100
 [1] "Loading dataset nl93h..."
 nl93h 5187 0 407830
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -198,8 +203,8 @@ nl93h 5187 0 407830
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "nl93h"
-gini,nl93h,disp_sqrt10,0,0,100
-gini,nl93h,disp_sqrt,0,0,100
+gini,nl93h,disp_sqrt10,0.2619,0.0034,100
+gini,nl93h,disp_sqrt,0.2619,0.0036,100
 [1] "Loading dataset nl99h..."
 nl99h 4344 0 582170
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -207,8 +212,8 @@ nl99h 4344 0 582170
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "nl99h"
-gini,nl99h,disp_sqrt10,0,0,100
-gini,nl99h,disp_sqrt,0,0,100
+gini,nl99h,disp_sqrt10,0.2317,0.0036,100
+gini,nl99h,disp_sqrt,0.2317,0.0036,100
 [1] "Loading dataset nl04h..."
 nl04h 9356 2 261000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -216,8 +221,8 @@ nl04h 9356 2 261000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  275843  305886  335930  335930  365973  396016 
 [1] "over"  "nl04h" "10.6"  "15.2" 
-gini,nl04h,disp_sqrt10,0,0,100
-gini,nl04h,disp_sqrt,0,0,100
+gini,nl04h,disp_sqrt10,0.2644,0.0044,100
+gini,nl04h,disp_sqrt,0.267,0.0051,100
 [1] "Loading dataset nl07h..."
 nl07h 10337 3 295210
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -225,8 +230,8 @@ nl07h 10337 3 295210
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  431242  470094  508946  534706  586437  663929 
 [1] "over"  "nl07h" "14.6"  "17.2"  "22.5" 
-gini,nl07h,disp_sqrt10,0,0,110
-gini,nl07h,disp_sqrt,0,0,110
+gini,nl07h,disp_sqrt10,0.2726,0.0043,110
+gini,nl07h,disp_sqrt,0.2772,0.0053,110
 [1] "Loading dataset nl10h..."
 nl10h 10492 2 302480
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -234,8 +239,8 @@ nl10h 10492 2 302480
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  383165  473630  564095  564095  654560  745025 
 [1] "over"  "nl10h" "12.7"  "24.6" 
-gini,nl10h,disp_sqrt10,0,0,110
-gini,nl10h,disp_sqrt,0,0,110
+gini,nl10h,disp_sqrt10,0.2564,0.003,110
+gini,nl10h,disp_sqrt,0.2574,0.0031,110
 [1] "Loading dataset nl13h..."
 nl13h 10174 3 301580
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -243,11 +248,11 @@ nl13h 10174 3 301580
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  308743  323549  338356  336766  350777  363198 
 [1] "over"  "nl13h" "10.2"  "11.2"  "12"   
-gini,nl13h,disp_sqrt10,0,0,110
-gini,nl13h,disp_sqrt,0,0,110
+gini,nl13h,disp_sqrt10,0.2631,0.004,110
+gini,nl13h,disp_sqrt,0.2642,0.0042,110
 > 
 > proc.time()
    user  system elapsed 
- 30.119   0.476  31.852 
+ 31.806   0.516  33.933 
 
 

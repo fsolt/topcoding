@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614470 uk
-Date: April 5, 2019 at 10:58:23 AM CDT
+Subject: job 614559 uk
+Date: April 5, 2019 at 1:28:07 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ uk69h 7005 1 12640
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   15628   15628   15628   15628   15628   15628 
 [1] "over"  "uk69h" "12.4" 
-gini,uk69h,disp_sqrt10,0,0,100
-gini,uk69h,disp_sqrt,0,0,100
+gini,uk69h,disp_sqrt10,0.2671,0.0028,100
+gini,uk69h,disp_sqrt,0.2684,0.0033,100
 [1] "Loading dataset uk74h..."
 uk74h 6695 1 22010
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -180,8 +185,8 @@ uk74h 6695 1 22010
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   31044   31044   31044   31044   31044   31044 
 [1] "over"  "uk74h" "14.1" 
-gini,uk74h,disp_sqrt10,0,0,100
-gini,uk74h,disp_sqrt,0,0,100
+gini,uk74h,disp_sqrt10,0.2679,0.0032,100
+gini,uk74h,disp_sqrt,0.2683,0.0034,100
 [1] "Loading dataset uk79h..."
 uk79h 6777 0 45040
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -189,8 +194,8 @@ uk79h 6777 0 45040
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "uk79h"
-gini,uk79h,disp_sqrt10,0,0,100
-gini,uk79h,disp_sqrt,0,0,100
+gini,uk79h,disp_sqrt10,0.2671,0.0029,100
+gini,uk79h,disp_sqrt,0.2671,0.003,100
 [1] "Loading dataset uk86h..."
 uk86h 7178 0 73990
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -198,8 +203,8 @@ uk86h 7178 0 73990
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "uk86h"
-gini,uk86h,disp_sqrt10,0,0,100
-gini,uk86h,disp_sqrt,0,0,100
+gini,uk86h,disp_sqrt10,0.3037,0.003,100
+gini,uk86h,disp_sqrt,0.304,0.0031,100
 [1] "Loading dataset uk91h..."
 uk91h 7056 4 110690
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -207,8 +212,8 @@ uk91h 7056 4 110690
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  114383  115011  207667  214084  306740  326620 
 [1] "over"  "uk91h" "10.3"  "10.4"  "27.1"  "29.5" 
-gini,uk91h,disp_sqrt10,0,0,100
-gini,uk91h,disp_sqrt,0,0,100
+gini,uk91h,disp_sqrt10,0.335,0.0038,100
+gini,uk91h,disp_sqrt,0.3403,0.0054,100
 [1] "Loading dataset uk94h..."
 uk94h 26399 9 121950
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -217,8 +222,8 @@ uk94h 26399 9 121950
  130346  133005  163335  235563  167143  594479 
  [1] "over"  "uk94h" "10.7"  "10.8"  "10.9"  "12.2"  "13.4"  "13.5"  "13.7" 
 [10] "39.9"  "48.7" 
-gini,uk94h,disp_sqrt10,0,0,100
-gini,uk94h,disp_sqrt,0,0,100
+gini,uk94h,disp_sqrt10,0.3377,0.0023,100
+gini,uk94h,disp_sqrt,0.3442,0.0033,100
 [1] "Loading dataset uk95h..."
 uk95h 6797 2 124040
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -226,8 +231,8 @@ uk95h 6797 2 124040
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  171792  174463  177134  177134  179805  182475 
 [1] "over"  "uk95h" "13.8"  "14.7" 
-gini,uk95h,disp_sqrt10,0,0,100
-gini,uk95h,disp_sqrt,0,0,100
+gini,uk95h,disp_sqrt10,0.3434,0.0039,100
+gini,uk95h,disp_sqrt,0.3464,0.0048,100
 [1] "Loading dataset uk99h..."
 uk99h 24988 19 150490
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -237,8 +242,8 @@ uk99h 24988 19 150490
  [1] "over"  "uk99h" "10.4"  "10.6"  "11.2"  "11.4"  "11.5"  "12.2"  "12.7" 
 [10] "13.2"  "13.8"  "14.3"  "14.4"  "14.5"  "14.5"  "15.5"  "19"    "24.9" 
 [19] "25.3"  "59.1"  "62.2" 
-gini,uk99h,disp_sqrt10,0,0,100
-gini,uk99h,disp_sqrt,0,0,100
+gini,uk99h,disp_sqrt10,0.3448,0.0021,100
+gini,uk99h,disp_sqrt,0.3532,0.0032,100
 [1] "Loading dataset uk04h..."
 uk04h 27753 28 192260
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -249,8 +254,8 @@ uk04h 27753 28 192260
 [10] "12"    "12.1"  "12.2"  "12.7"  "13.4"  "13.7"  "14.9"  "15.3"  "15.5" 
 [19] "17.9"  "19.2"  "21.1"  "21.8"  "24.2"  "26.5"  "26.7"  "27.5"  "28.4" 
 [28] "31.9"  "33.1" 
-gini,uk04h,disp_sqrt10,0,0,100
-gini,uk04h,disp_sqrt,0,0,100
+gini,uk04h,disp_sqrt10,0.3423,0.0023,100
+gini,uk04h,disp_sqrt,0.3543,0.0038,100
 [1] "Loading dataset uk07h..."
 uk07h 24977 14 224000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -259,8 +264,8 @@ uk07h 24977 14 224000
  224467  251486  292788  354784  403496  919590 
  [1] "over"  "uk07h" "10.7"  "11.2"  "11.4"  "11.8"  "12.2"  "14"    "14.9" 
 [10] "16"    "18.7"  "19.7"  "20.2"  "41.1" 
-gini,uk07h,disp_sqrt10,0,0,110
-gini,uk07h,disp_sqrt,0,0,110
+gini,uk07h,disp_sqrt10,0.3375,0.0026,110
+gini,uk07h,disp_sqrt,0.3425,0.003,110
 [1] "Loading dataset uk10h..."
 uk10h 25350 18 231730
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -270,8 +275,8 @@ uk10h 25350 18 231730
  [1] "over"  "uk10h" "10.5"  "10.5"  "10.9"  "10.9"  "10.9"  "11"    "11.3" 
 [10] "11.3"  "11.5"  "12.5"  "13.2"  "13.8"  "14"    "14.6"  "17.3"  "19.6" 
 [19] "20.7"  "29"   
-gini,uk10h,disp_sqrt10,0,0,110
-gini,uk10h,disp_sqrt,0,0,110
+gini,uk10h,disp_sqrt10,0.3329,0.0026,110
+gini,uk10h,disp_sqrt,0.3388,0.0032,110
 [1] "Loading dataset uk13h..."
 uk13h 20135 6 256920
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -279,8 +284,8 @@ uk13h 20135 6 256920
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  273624  274054  276966  290471  291654  345636 
 [1] "over"  "uk13h" "10.7"  "10.7"  "10.7"  "10.9"  "11.5"  "13.5" 
-gini,uk13h,disp_sqrt10,0,0,110
-gini,uk13h,disp_sqrt,0,0,110
+gini,uk13h,disp_sqrt10,0.3284,0.003,110
+gini,uk13h,disp_sqrt,0.3337,0.0036,110
 [1] "Loading dataset uk16h..."
 uk16h 19380 16 272500
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -289,11 +294,11 @@ uk16h 19380 16 272500
  272638  275912  287128  402478  561637  785916 
  [1] "over"  "uk16h" "10.1"  "10.1"  "10.1"  "10.1"  "10.1"  "10.2"  "10.3" 
 [10] "10.8"  "11.4"  "12.8"  "20.5"  "21"    "22.9"  "27"    "28.8" 
-gini,uk16h,disp_sqrt10,0,0,110
-gini,uk16h,disp_sqrt,0,0,110
+gini,uk16h,disp_sqrt10,0.3359,0.0031,110
+gini,uk16h,disp_sqrt,0.3436,0.0039,110
 > 
 > proc.time()
    user  system elapsed 
- 86.482   1.307  90.967 
+ 93.001   1.068  97.532 
 
 

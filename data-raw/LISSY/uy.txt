@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614472 uy
-Date: April 5, 2019 at 11:00:07 AM CDT
+Subject: job 614561 uy
+Date: April 5, 2019 at 1:29:52 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -173,8 +178,8 @@ uy04h 18392 18 1088080
  [1] "over"  "uy04h" "10.1"  "10.7"  "11.4"  "11.7"  "12"    "12.7"  "12.9" 
 [10] "13.2"  "14.5"  "14.8"  "17"    "17"    "17.2"  "19.5"  "21"    "23.2" 
 [19] "26"    "26.9" 
-gini,uy04h,disp_sqrt10,0,0,200
-gini,uy04h,disp_sqrt,0,0,200
+gini,uy04h,disp_sqrt10,0.4226,0.0023,200
+gini,uy04h,disp_sqrt,0.4343,0.0034,200
 [1] "Loading dataset uy07h..."
 uy07h 47906 40 1571200
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -186,8 +191,8 @@ uy07h 47906 40 1571200
 [19] "12.2"  "12.5"  "12.6"  "12.6"  "13.2"  "13.9"  "14.1"  "14.5"  "14.6" 
 [28] "14.7"  "14.7"  "14.8"  "15.6"  "15.7"  "16.2"  "17.2"  "18.1"  "22.6" 
 [37] "30.9"  "31.7"  "41.8"  "46.5"  "48.5"  "52.8" 
-gini,uy07h,disp_sqrt10,0,0,200
-gini,uy07h,disp_sqrt,0,0,200
+gini,uy07h,disp_sqrt10,0.4206,0.0016,200
+gini,uy07h,disp_sqrt,0.4307,0.0023,200
 [1] "Loading dataset uy10h..."
 uy10h 45305 34 2322900
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -198,8 +203,8 @@ uy10h 45305 34 2322900
 [10] "11.3"  "11.4"  "11.6"  "11.6"  "11.8"  "11.9"  "11.9"  "11.9"  "12.2" 
 [19] "12.5"  "12.7"  "13.1"  "13.6"  "14.4"  "16.3"  "17.2"  "18.1"  "18.6" 
 [28] "20.9"  "21.6"  "22.1"  "23.1"  "23.9"  "25.9"  "28.5"  "30"    "31.4" 
-gini,uy10h,disp_sqrt10,0,0,200
-gini,uy10h,disp_sqrt,0,0,200
+gini,uy10h,disp_sqrt10,0.3928,0.0018,200
+gini,uy10h,disp_sqrt,0.4004,0.0025,200
 [1] "Loading dataset uy13h..."
 uy13h 45592 5 3476000
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -207,8 +212,8 @@ uy13h 45592 5 3476000
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
  3478965  3608000  3761808  6327189  3972170 16814999 
 [1] "over"  "uy13h" "10.4"  "10.8"  "11.4"  "48.4" 
-gini,uy13h,disp_sqrt10,0,0,200
-gini,uy13h,disp_sqrt,0,0,200
+gini,uy13h,disp_sqrt10,0.3686,0.0016,200
+gini,uy13h,disp_sqrt,0.3706,0.0018,200
 [1] "Loading dataset uy16h..."
 uy16h 44428 20 4706960
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -218,11 +223,11 @@ uy16h 44428 20 4706960
  [1] "over"  "uy16h" "10.1"  "10.2"  "10.3"  "10.6"  "11"    "11.2"  "11.2" 
 [10] "11.6"  "11.9"  "12.1"  "12.2"  "12.2"  "12.6"  "12.9"  "14.2"  "14.3" 
 [19] "14.9"  "15.5"  "21.2"  "44.5" 
-gini,uy16h,disp_sqrt10,0,0,200
-gini,uy16h,disp_sqrt,0,0,200
+gini,uy16h,disp_sqrt10,0.3587,0.0016,200
+gini,uy16h,disp_sqrt,0.3604,0.0016,200
 > 
 > proc.time()
    user  system elapsed 
- 86.827   1.590  91.590 
+ 93.931   1.521  98.064 
 
 

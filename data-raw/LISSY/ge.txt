@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614438 ge
-Date: April 5, 2019 at 10:46:11 AM CDT
+Subject: job 614528 ge
+Date: April 5, 2019 at 1:14:16 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ ge10h 5546 4 36820
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   41097   42923   43590   44415   45082   49383 
 [1] "over"  "ge10h" "11.2"  "11.8"  "11.9"  "13.4" 
-gini,ge10h,disp_sqrt10,0,0,200
-gini,ge10h,disp_sqrt,0,0,200
+gini,ge10h,disp_sqrt10,0.4352,0.0048,200
+gini,ge10h,disp_sqrt,0.4457,0.0069,200
 [1] "Loading dataset ge13h..."
 ge13h 2760 0 57200
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -180,8 +185,8 @@ ge13h 2760 0 57200
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ge13h"
-gini,ge13h,disp_sqrt10,0,0,200
-gini,ge13h,disp_sqrt,0,0,200
+gini,ge13h,disp_sqrt10,0.3928,0.0072,200
+gini,ge13h,disp_sqrt,0.4009,0.0119,200
 [1] "Loading dataset ge16h..."
 ge16h 2696 0 78750
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -189,11 +194,11 @@ ge16h 2696 0 78750
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "ge16h"
-gini,ge16h,disp_sqrt10,0,0,200
-gini,ge16h,disp_sqrt,0,0,200
+gini,ge16h,disp_sqrt10,0.3879,0.0072,200
+gini,ge16h,disp_sqrt,0.3903,0.0084,200
 > 
 > proc.time()
    user  system elapsed 
-  7.643   0.356   8.634 
+  7.813   0.333   8.631 
 
 

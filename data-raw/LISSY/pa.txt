@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614453 pa
-Date: April 5, 2019 at 10:50:50 AM CDT
+Subject: job 614544 pa
+Date: April 5, 2019 at 1:20:17 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -172,8 +177,8 @@ pa07h 12993 11 57570
   62448   67886   79127   83608   91118  125454 
  [1] "over"  "pa07h" "10.8"  "10.9"  "11.8"  "11.8"  "13"    "13.7"  "14.7" 
 [10] "15.6"  "16"    "19.5"  "21.8" 
-gini,pa07h,disp_sqrt10,0,0,120
-gini,pa07h,disp_sqrt,0,0,120
+gini,pa07h,disp_sqrt10,0.4796,0.0038,120
+gini,pa07h,disp_sqrt,0.4871,0.0042,120
 [1] "Loading dataset pa10h..."
 pa10h 13347 10 68400
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -182,8 +187,8 @@ pa10h 13347 10 68400
   71522   76507  108765  125299  145239  270328 
  [1] "over"  "pa10h" "10.5"  "11"    "11.1"  "11.4"  "15.3"  "16.5"  "21.1" 
 [10] "21.3"  "25.5"  "39.5" 
-gini,pa10h,disp_sqrt10,0,0,120
-gini,pa10h,disp_sqrt,0,0,120
+gini,pa10h,disp_sqrt10,0.4689,0.004,120
+gini,pa10h,disp_sqrt,0.4804,0.0048,120
 [1] "Loading dataset pa13h..."
 pa13h 11812 8 91750
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -192,11 +197,11 @@ pa13h 11812 8 91750
   92290  101750  118495  138998  142343  280250 
  [1] "over"  "pa13h" "10.1"  "10.2"  "11.4"  "12.8"  "13.1"  "14.4"  "18.7" 
 [10] "30.5" 
-gini,pa13h,disp_sqrt10,0,0,120
-gini,pa13h,disp_sqrt,0,0,120
+gini,pa13h,disp_sqrt10,0.4652,0.0055,120
+gini,pa13h,disp_sqrt,0.4721,0.0058,120
 > 
 > proc.time()
    user  system elapsed 
- 16.275   0.501  17.496 
+ 17.923   0.543  19.446 
 
 

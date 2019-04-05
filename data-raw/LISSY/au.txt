@@ -1,6 +1,6 @@
 From: postbox@lisdatacenter.org
-Subject: job 614421 au
-Date: April 5, 2019 at 10:35:49 AM CDT
+Subject: job 614509 au
+Date: April 5, 2019 at 1:02:44 PM CDT
 To: fsolt@mac.com
 
 ############################### NOTICE TO USERS ###############################
@@ -147,6 +147,11 @@ The following objects are masked from ‘package:base’:
 +                           pull(disp_sqrt_med) %>%  
 +                             sort())) 
 +                 for (var in v) { 
++                     if (grepl("hh", var)) { 
++                         df$wt <- df$hpopwgt 
++                     } else { 
++                         df$wt <- df$hpopwgt * df$nhhmem 
++                     } 
 +                     if (!is.na(mean(df[[var]], na.rm = TRUE))) { 
 +                         cat(paste("gini", 
 +                                   ccyy,  
@@ -171,8 +176,8 @@ au81h 14755 0 146900
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "au81h"
-gini,au81h,disp_sqrt10,0,0,120
-gini,au81h,disp_sqrt,0,0,120
+gini,au81h,disp_sqrt10,0.2819,0.0019,120
+gini,au81h,disp_sqrt,0.2819,0.0019,120
 [1] "Loading dataset au85h..."
 au85h 7563 0 190500
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -180,8 +185,8 @@ au85h 7563 0 190500
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "au85h"
-gini,au85h,disp_sqrt10,0,0,120
-gini,au85h,disp_sqrt,0,0,120
+gini,au85h,disp_sqrt10,0.2929,0.0032,120
+gini,au85h,disp_sqrt,0.293,0.003,120
 [1] "Loading dataset au89h..."
 au89h 14450 0 261430
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -189,8 +194,8 @@ au89h 14450 0 261430
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "au89h"
-gini,au89h,disp_sqrt10,0,0,120
-gini,au89h,disp_sqrt,0,0,120
+gini,au89h,disp_sqrt10,0.3037,0.0024,120
+gini,au89h,disp_sqrt,0.3039,0.0024,120
 [1] "Loading dataset au95h..."
 au95h 6819 0 276640
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -198,8 +203,8 @@ au95h 6819 0 276640
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "au95h"
-gini,au95h,disp_sqrt10,0,0,120
-gini,au95h,disp_sqrt,0,0,120
+gini,au95h,disp_sqrt10,0.3106,0.0038,120
+gini,au95h,disp_sqrt,0.3109,0.0037,120
 [1] "Loading dataset au01h..."
 au01h 6786 0 349440
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -207,8 +212,8 @@ au01h 6786 0 349440
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
                                                 
 [1] "over"  "au01h"
-gini,au01h,disp_sqrt10,0,0,120
-gini,au01h,disp_sqrt,0,0,120
+gini,au01h,disp_sqrt10,0.3193,0.0043,120
+gini,au01h,disp_sqrt,0.32,0.0046,120
 [1] "Loading dataset au03h..."
 au03h 10210 2 375440
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -216,8 +221,8 @@ au03h 10210 2 375440
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  390000  396282  402564  402564  408846  415128 
 [1] "over"  "au03h" "10.4"  "11.1" 
-gini,au03h,disp_sqrt10,0,0,120
-gini,au03h,disp_sqrt,0,0,120
+gini,au03h,disp_sqrt10,0.3146,0.003,120
+gini,au03h,disp_sqrt,0.3159,0.0034,120
 [1] "Loading dataset au04h..."
 au04h 11361 2 415320
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -225,8 +230,8 @@ au04h 11361 2 415320
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  455220  456720  458220  458220  459721  461221 
 [1] "over"  "au04h" "11"    "11.1" 
-gini,au04h,disp_sqrt10,0,0,120
-gini,au04h,disp_sqrt,0,0,120
+gini,au04h,disp_sqrt10,0.3147,0.0032,120
+gini,au04h,disp_sqrt,0.3158,0.0037,120
 [1] "Loading dataset au08h..."
 au08h 9345 4 592150
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -234,8 +239,8 @@ au08h 9345 4 592150
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  595604  612765  644164  647288  678688  705222 
 [1] "over"  "au08h" "10.1"  "10.4"  "11.3"  "11.9" 
-gini,au08h,disp_sqrt10,0,0,120
-gini,au08h,disp_sqrt,0,0,120
+gini,au08h,disp_sqrt10,0.3328,0.0043,120
+gini,au08h,disp_sqrt,0.3356,0.0045,120
 [1] "Loading dataset au10h..."
 au10h 18008 3 620890
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -243,8 +248,8 @@ au10h 18008 3 620890
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  881722  886386  891049 1051566 1136488 1381926 
 [1] "over"  "au10h" "14.2"  "14.4"  "22.3" 
-gini,au10h,disp_sqrt10,0,0,120
-gini,au10h,disp_sqrt,0,0,120
+gini,au10h,disp_sqrt10,0.3299,0.0032,120
+gini,au10h,disp_sqrt,0.3338,0.0041,120
 [1] "Loading dataset au14h..."
 au14h 14115 5 707840
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
@@ -252,11 +257,11 @@ au14h 14115 5 707840
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  723012  838265 1202069 2316967 2189951 6631536 
 [1] "over"  "au14h" "10.2"  "11.8"  "17"    "30.9"  "93.7" 
-gini,au14h,disp_sqrt10,0,0,120
-gini,au14h,disp_sqrt,0,0,120
+gini,au14h,disp_sqrt10,0.3334,0.0038,120
+gini,au14h,disp_sqrt,0.3412,0.0056,120
 > 
 > proc.time()
    user  system elapsed 
- 47.497   0.870  50.443 
+ 51.096   0.819  53.501 
 
 
