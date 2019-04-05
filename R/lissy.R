@@ -116,6 +116,11 @@ get_ginis <- function(cc, reps = 100) {
                           pull(disp_sqrt_med) %>% 
                             sort()))
                 for (var in v) {
+                    if (grepl("hh", var)) {
+                        df$wt <- df$hpopwgt
+                    } else {
+                        df$wt <- df$hpopwgt * df$nhhmem
+                    }
                     if (!is.na(mean(df[[var]], na.rm = TRUE))) {
                         cat(paste("gini",
                                   ccyy, 
