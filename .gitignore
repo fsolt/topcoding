@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+*.Rproj
+*.DS_Store
+dev/*
+*.bbl
+*.log
+*.out
+*.blg
+*.fls
+*.aux
+*.synctex.gz
+
+
